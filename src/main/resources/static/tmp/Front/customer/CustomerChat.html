@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/616f19a0b0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- 傳送圖片icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <!-- 客服聊天室 -->
+    <link rel="stylesheet" href="./dist/css/customerChat.css">
+
+    <title>客服前台</title>
+
+</head>
+
+<body onunload="connect();">
+    <!-- service start -->
+
+    <!-- service image start -->
+
+    
+    <div class="btn" id="chat-icon" style="position: fixed;">
+        <img src="../dist/img/chat/live-chat.png" style="width: 50px" />
+        <img src="../dist/img/chat/warning.png" style="width: 20px" id="alert" class="hide" />
+    </div>
+
+    <div class="hide" id="chatBox" style="width: 410px">
+        <div class="chat-window">
+
+            <div class="panel panel-default">
+
+                <!-- chat-title -->
+                <div class="panel-heading top-bar d-flex">
+                    <div class="col-md-8 col-xs-8">
+
+                        <h5 class="panel-title">客服聊天室</h5>
+                    </div>
+                    <div class="col-md-4 col-xs-4" style="margin-top: 5px; margin-left: 90px;">
+                        <i class="bi bi-x-lg fs-5" id="close"></i>
+                    </div>
+                </div>
+
+                <!-- chat-body -->
+                <div class="panel-body msg_container_base" id="msgContainer">
+
+                </div>
+
+                <!-- chat-input -->
+                <div class="panel-footer">
+                    <div class="input-group" style="padding: 6px;">
+                        <input id="btn-input" type="text" class="input-sm chat_input" placeholder="Message..."
+                            autocomplete="off" />
+                        <span class="input-group-btn">
+                            <button class="btn" id="btn-chat" style="background-color: #807971"
+                                onclick="sendMessage();">
+                                <i class="bi bi-send-fill text-white"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./dist/js/customerChat.js"></script>
+</body>
+
+</html>

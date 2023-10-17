@@ -1,0 +1,114 @@
+.container {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 80vw;
+    background-color: white;
+    /* margin-top: 40px; */
+    padding: 0 0 50px 0;
+    /* 上右下左 */
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    /* 圖片按照比例百分百放大至填滿container */
+}
+
+body {
+    background-color: #F6F4E8;
+}
+
+.b {
+    width: 80vw;
+    min-height: 60vh;
+    /* display: flex; */
+    justify-content: center;
+    background-color: #f1f0ea;
+    align-items: center;
+
+}
+
+.banner {
+    width: 80vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    background-color: #585021;
+    align-items: center;
+
+}
+
+.target {
+    position: sticky;
+    height: 39px;
+    top: -5px;
+    /* 初始位置距離上方200px */
+    width: 80vw;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    padding-left: 50px;
+    background-color: white;
+    vertical-align: bottom;
+    z-index: 4;
+    height: 60px;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-color: rgb(161, 160, 160);
+}
+
+.btn-primary-send {
+    background-color: #E59560;
+    border-color: #E59560;
+}
+
+.btn-primary {
+    background-color: rgb(204, 220, 209, 0.5);
+    border-color: #e6f3ea;
+    color: rgb(163, 160, 160);
+}
+
+.btn-primary:hover {
+    background-color: #abc1b3;
+    border-color: #abc1b3;
+}
+
+.btn-primary.active {
+    background-color: #7c9a87;
+    border-color: #95ad9e;
+}
+
+.articlecard {
+    margin: 20px 0px 80px 50px;
+    width: 60vw;
+    height: 10vw;
+    display: block;
+
+
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #1D3124;
+    font-weight: 900;
+}
+
+.nav {
+    --bs-nav-link-color: #a4a09c;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

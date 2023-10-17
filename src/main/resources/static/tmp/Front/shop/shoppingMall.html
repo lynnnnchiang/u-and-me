@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UandMe Online Shopping</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/css/shoppingMall.css">
+    <link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon">
+    <!-- 傳送圖片icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <!-- 客服聊天室 -->
+    <link rel="stylesheet" href="../customer/dist/css/customerChat.css">
+
+    <!-- 
+<style>
+.prod_Img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+</style> -->
+
+</head>
+
+<body>
+    <div class="Header">
+        <nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../activity/ActivityIndex.html">
+                    <img src="../dist/img/uandmelogo-removebg-preview.png">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../activity/ActivityIndex.html" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">活動資訊</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../activity/ActivityNewsList.html">News</a></li>
+                                <li><a class="dropdown-item" href="../activity/ActivityPeriodList.html">期間限定</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../attraction/attractionList.html">旅遊景點</a>
+                        </li>
+                        <li class="nav-item dropdown me-2">
+                            <a class="nav-link dropdown-toggle" href="../schedule/scheduleList.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">行程規劃</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../schedule/scheduleList.html">旅遊行程</a></li>
+                                <li><a class="dropdown-item" href="../schedule/mySchedule.html">我的行程</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../group/groupList.html">揪團專區</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../shop/shoppingMall.html">旅遊商城</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">論壇專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../article/articleindex/ArticleIndex.html">論壇</a></li>
+                                <li><a class="dropdown-item" href="../article/posting/posting.html">發表新文章</a></li>
+                            </ul>
+                        </li>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../customer/CustomerContact.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">客服專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../customer/CustomerQa.html">Q&A專欄</a></li>
+                                <li><a class="dropdown-item" href="../customer/CustomerContact.html">聯絡我們</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../member/memberCenter.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                            </svg>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../shop/shoppingCart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                            </svg>
+
+                        </a>
+
+
+
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+    </div>
+    </div>
+
+    <div class="container-fluid" style="height: 400px;">
+        <!-- -----輪播圖----- -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="height: 450px;">
+            <div class="carousel-indicators" style="height: 0px;">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- data-bs-interval="5000" 輪播時間 5000=毫秒 -->
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="../dist/img/group_img1.jpg" class="d-block w-100 h-50" alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="height: 300px;">
+                        <h1 style="font-size: 50px;">旅遊商城</h1>
+                        <h4 style="font-size: 25px;">U & Me 啟程與自然共舞的旅途</h4>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <!-- alt作用 當圖片讀取不到時取代 -->
+                    <img src="../dist/img/group_img2.jpg" class="d-block w-100 h-50" alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="height: 300px;">
+                        <h1 style="font-size: 50px;">旅遊商城</h1>
+                        <h4 style="font-size: 25px;">U & Me 旅遊 x 選物</h4>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="../dist/img/group_img3.jpg" class="d-block w-100 h-50" alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="height: 300px;">
+                        <h1 style="font-size: 50px;">旅遊商城</h1>
+                        <h4 style="font-size: 25px;">U & Me 旅行好物</h4>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev" style="height: 57px;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next" style="height: 57px;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- <section class="text-center container-fluid"
+    style="padding-top: 80px; background-color: #F6F4E8; position: relative; width: 100vw;">
+    <div class="row">
+
+    </div>
+  </section> -->
+
+
+    <!-- -----Bread Crumb----- -->
+    <div class="contianer" style="margin-top: 100px;">
+        <!-- <div class="breadcontainer" style="margin-left: 70px; margin-top: 30px;">
+      <div class="row">
+        <nav aria-label="breadcrumb sticky">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item " style="display:inline-block"><a href="../activity/ActivityIndex.html">首頁</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style="display:inline-block">旅遊商城</li>
+            </ol>
+          </nav>
+        </nav>
+      </div>
+    </div> -->
+
+
+        <!-- -----Content----- -->
+
+        <div class="container mb-5 mt-5">
+            <div class="row">
+
+                <!-- 搜尋欄、篩選條件 -->
+                <div class="filter-search" style="padding-left: 800px; padding-bottom: 10px;">
+                    <form class="d-flex" role="search" method="get" action="#">
+
+                        <!-- 搜尋欄 -->
+                        <input
+                            class="form-control form-control-sm me-2 mb-3 d-inline-flex focus-ring pb-2 px-2 text-decoration-none border rounded-2"
+                            type="search" id="searchInput" placeholder="搜尋商品" aria-label="Search"
+                            style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25) width:100px;height:40px;">
+                        <button class="btn btn-outline-success btn-sm mb-3" id="searchButton" type="focus"
+                            style="width:80px;height:40px;">搜尋</button>
+                    </form>
+                </div>
+
+                <!-- 類別列 -->
+
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <div class="list-group-shop">
+                            <a href="#" class="list-group-item list-group-item-action active" aria-current="true"
+                                style="background-color: rgb(81, 113, 111); border-color: rgb(81, 113, 111);;">
+                                商品類別
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" id="prodCatId_1">戶外選品</a>
+                            <a href="#" class="list-group-item list-group-item-action" id="prodCatId_2">在地美食</a>
+                            <a href="#" class="list-group-item list-group-item-action" id="prodCatId_3">旅遊必備小物</a>
+                            <a href="#" class="list-group-item list-group-item-action" id="prodCatId_4">流浪的意義</a>
+
+                        </div>
+                    </div>
+
+                    <!-- 商品列 -->
+                    <div class="col-12 col-md-9">
+                        <div class="row row-col-2 row-cols-md-3" id="product-list">
+                            <!-- 插入動態商品列表 product-list -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 換頁1234 -->
+            <div class="row">
+                <div class="col pt-5">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#">上一頁</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- -----Footer----- -->
+
+    <div class=" footer">
+        <div class="container-fluid footer1">
+
+            <div class="btn" id="chat-icon" style="position: fixed;">
+                <img src="../dist/img/chat/live-chat.png" style="width: 50px" />
+                <img src="../dist/img/chat/warning.png" style="width: 20px" id="alert" class="hide" />
+            </div>
+        
+            <div class="hide" id="chatBox" style="width: 410px">
+                <div class="chat-window">
+        
+                    <div class="panel panel-default">
+        
+                        <!-- chat-title -->
+                        <div class="panel-heading top-bar d-flex">
+                            <div class="col-md-8 col-xs-8">
+        
+                                <h5 class="panel-title">客服聊天室</h5>
+                            </div>
+                            <div class="col-md-4 col-xs-4" style="margin-top: 5px; margin-left: 90px;">
+                                <i class="bi bi-x-lg fs-5" id="close"></i>
+                            </div>
+                        </div>
+        
+                        <!-- chat-body -->
+                        <div class="panel-body msg_container_base" id="msgContainer">
+        
+                        </div>
+        
+                        <!-- chat-input -->
+                        <div class="panel-footer">
+                            <div class="input-group" style="padding: 6px;">
+                                <input id="btn-input" type="text" class="input-sm chat_input" placeholder="Message..."
+                                    autocomplete="off" />
+                                <span class="input-group-btn">
+                                    <button class="btn" id="btn-chat" style="background-color: #807971"
+                                        onclick="sendMessage();">
+                                        <i class="bi bi-send-fill text-white"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                </div>
+            </div>
+
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my- border-top">
+                <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32">
+                            <use xlink:href="#bootstrap" />
+                        </svg>
+                    </a>
+                    <p class="text-body-secondary">&copy; 2023</p>
+                </div>
+
+                <div class="col mb-3">
+
+                </div>
+
+
+
+                <div class="col mb-3 mx-5" style="font-family: 'Times New Roman', Times, serif;">
+                    <h5>U&Me</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="../activity/ActivityIndex.html"
+                                class="nav-link p-0 text-body-secondary">活動資訊</a></li>
+                        <li class="nav-item mb-2"><a href="../schedule/scheduleList.html"
+                                class="nav-link p-0 text-body-secondary">行程規劃</a></li>
+                        <li class="nav-item mb-2"><a href="../shop/shoppingMall.html"
+                                class="nav-link p-0 text-body-secondary">旅遊商城</a></li>
+                        <li class="nav-item mb-2"><a href="../article/articleindex/ArticleIndex.html"
+                                class="nav-link p-0 text-body-secondary">論壇專區</a></li>
+                        <li class="nav-item mb-2"><a href="../customer/CustomerContact.html"
+                                class="nav-link p-0 text-body-secondary">客服專區</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col mb-3 mx-5" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <h5>Follow Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a
+                                class="nav-link p-0 text-body-secondary">E-mail:u-and-me@gmail.com</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-body-secondary">Tel:02-22222222</a>
+    
+                    </ul>
+                    </li>
+    
+                </div>
+            </footer>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        const baseUrl = window.location.protocol + "//" + window.location.host + "/u-and-me/";
+        //頁面載入後
+        document.addEventListener("DOMContentLoaded", function () {
+            listAllProd();
+        });
+        // ---使用 fetch 獲取商城頁面數據---
+        const listAllProd = async function () {
+            const shoppingCartIcon = document.getElementById('shoppingCart');
+
+            fetch(`${baseUrl}product/listAllStaOn`)
+                .then(response => response.json())
+                .then(data => {
+                    const productUl = document.getElementById('product-list');
+                    // <div class="col mb-5">
+                    // <div class="card">
+                    //     <img src="http://picsum.photos/300/150?random=10" class="card-img-top">
+                    //         <div class="card-body">
+                    //             <h5 class="card-title">Card title</h5>
+                    //             <p class="card-text">This is a longer card with supporting text below as a
+                    //                 natural</p>
+                    //         </div>
+                    // </div>
+                    // </div>
+
+                    // 遍歷商品數據並在頁面上動態創建列表
+                    // 這兩行建了一个新的 <li> 元素，再將商品數據的名稱和價格設為 <li> 元素的文本内容
+                    // 再將<li> 元素添加到 productUl（商品列表）中
+                    data.forEach(product => {
+                        let count = 0;
+                        const div = document.createElement('div');
+                        div.classList.add('col');
+                        div.classList.add('mb-5');
+                        const pp = product.productPictures[0];
+                        let base64Image;
+                        if (pp != null && pp != undefined) {
+                            base64Image = pp.prodPic;
+                        }
+                        function arrayBufferToBase64(arrayBuffer) {
+                            var binary = '';
+                            var bytes = new Uint8Array(arrayBuffer);
+                            var len = bytes.byteLength;
+                            for (var i = 0; i < len; i++) {
+                                binary += String.fromCharCode(bytes[i]);
+                            }
+                            return window.btoa(binary);
+                        }
+                        const text = `
+                    <div class="card">
+                        <a href = "http://localhost:8080/u-and-me/tmp/Front/shop/productDetail.html?prodId=${product.prodId}" id="prodId_redirect" style=" text-decoration: none;">
+                        <img src="data:image/jpeg;base64,${base64Image}" id="prod_Img" alt="商品照片" class="card-img-top" style=" width: 255px;height: 250px;object-fit: cover;">
+                            <div class="card-body">
+                                <h6 id="prodName_${product.prodId}" class="card-title" style="color: black; font-size: 18px;">${product.prodName}</h6>
+                                <p class="card-text" style="color: black; font-size: 16px;">NT$ ${product.prodPri}</p>
+                            </div>
+                            </a>
+                    </div>
+                    `;
+                        div.innerHTML = text;
+                        //指定img.src把圖片資料給他
+                        //
+
+                        productUl.appendChild(div);
+                    });
+                }).then(icondata => {
+                    const cartIcondata =`<a class="nav-link" onclick="redirectToCartPage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                    </svg>
+                                </a>`
+                    shoppingCartIcon.innerHTML = cartIcondata;
+        })
+                .catch(error => console.error('獲取商品數據時錯誤：', error));
+        } 
+
+        // <!--購物車icon會根據memId跳轉到購物車詳情頁面，並將資料映射到相關欄位上-->
+        async function redirectToCartPage() {
+                const newPageUrl = `${baseUrl}tmp/Front/shop/shoppingCart.html`;
+                window.location.href = newPageUrl;
+         }
+
+        //---搜尋欄用商品名稱搜尋商品---
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const productResults = document.getElementById('product-list');
+
+        //trim()用於刪除字符兩端的空白字符
+        searchButton.addEventListener('click', async function () {
+            const searchText = searchInput.value.trim();
+            // alert();
+            if (searchText === '') {
+                productResults.innerHTML = "請輸入欲搜尋的商品名稱";
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8080/u-and-me/product/findProdByName/${searchText}`);
+                const data = await response.json();
+                displaySearchResults(data);
+            } catch (error) {
+                console.error("搜尋有誤", error);
+                productResults.innerHTML = "搜尋有誤，請重新搜尋";
+            };
+        });
+
+        function displaySearchResults(data) {
+            //先清空搜尋結果
+            console.log(data);
+            productResults.innerHTML = '';
+
+            if (data.length === 0) {
+                productResults.innerHTML = "請輸入欲搜尋的關鍵字";
+                return;
+            } else {
+
+                // 遍歷搜尋結果並在頁面上動態創建列表
+                data.forEach(product => {
+                    let count = 0;
+                    const div = document.createElement('div');
+                    div.classList.add('col');
+                    div.classList.add('mb-5');
+                    const pp = product.productPictures[0];
+                    let base64Image;
+                    if (pp != null && pp != undefined) {
+                        base64Image = pp.prodPic;
+                    }
+                    function arrayBufferToBase64(arrayBuffer) {
+                        var binary = '';
+                        var bytes = new Uint8Array(arrayBuffer);
+                        var len = bytes.byteLength;
+                        for (var i = 0; i < len; i++) {
+                            binary += String.fromCharCode(bytes[i]);
+                        }
+                        return window.btoa(binary);
+                    }
+                    const text = `
+                    <div class="card">
+                        <a href ="http://localhost:8080/u-and-me/tmp/Front/shop/productDetail.html?prodId=${product.prodId}" id="prodId_redirect" style=" text-decoration: none;">
+                        <img src="data:image/jpeg;base64,${base64Image}" id="prod_Img" alt="商品照片" class="card-img-top" style=" width: 255px;height: 250px;object-fit: cover;">
+                            <div class="card-body">
+                                <h5 id="prodName_${product.prodId}" class="card-title" style="color: black; font-size: 18px;">${product.prodName}</h5>
+                                <p class="card-text" style="color: black; font-size: 16px;">NT$ ${product.prodPri}</p>
+                            </div>
+                            </a>
+                    </div>
+                    `;
+                    div.innerHTML = text;
+                    //指定img.src把圖片資料給他
+
+                    productResults.appendChild(div);
+                });
+            }
+        }
+
+
+        // ---點商品類別搜尋商品---
+        const prodCatIdLink = document.querySelectorAll('.list-group-shop a')
+        const productCatResults = document.getElementById('product-list');
+
+
+        prodCatIdLink.forEach(link => {
+            link.addEventListener('click', async function (event) {
+                event.preventDefault();
+
+                //清空顯示商品區域
+                productCatResults.innerHTML = "";
+                //得到連接id的屬性，決定要執行哪個請求
+                const categoryId = link.id;
+                //根據categoryId 決定要執行的不同fetch請求
+                let fetchUrl = '';
+
+                switch (categoryId) {
+                    case 'prodCatId_1':
+                        fetchUrl = 'http://localhost:8080/u-and-me/product/findProdByCatId/1'
+                        break;
+                    case 'prodCatId_2':
+                        fetchUrl = 'http://localhost:8080/u-and-me/product/findProdByCatId/2'
+                        break;
+                    case 'prodCatId_3':
+                        fetchUrl = 'http://localhost:8080/u-and-me/product/findProdByCatId/3'
+                        break;
+                    case 'prodCatId_4':
+                        fetchUrl = 'http://localhost:8080/u-and-me/product/findProdByCatId/4'
+                        break;
+                    default:
+                        return;
+                }
+                try {
+                    const response = await fetch(fetchUrl);
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(data);
+
+                        //將resp的資料放入商品區域
+                        displayClickResults(data);
+
+                    } else {
+                        console.error('請求失敗', response.status, response.statusText);
+
+                    }
+
+                } catch (error) {
+                    console.error('請求錯誤:', error);
+                }
+
+            });
+        });
+        
+        function displayClickResults(data) {
+            //先清空搜尋結果
+            // productCatResults.innerHTML = '';
+
+            // 遍歷搜尋結果並在頁面上動態創建列表
+            data.forEach(product => {
+                let count = 0;
+                const div = document.createElement('div');
+                div.classList.add('col');
+                div.classList.add('mb-5');
+                const pp = product.productPictures[0];
+                let base64Image;
+                if (pp != null && pp != undefined) {
+                    base64Image = pp.prodPic;
+                }
+                function arrayBufferToBase64(arrayBuffer) {
+                    var binary = '';
+                    var bytes = new Uint8Array(arrayBuffer);
+                    var len = bytes.byteLength;
+                    for (var i = 0; i < len; i++) {
+                        binary += String.fromCharCode(bytes[i]);
+                    }
+                    return window.btoa(binary);
+                }
+                const text = `
+                                            <div class="card">
+                                                <a href ="http://localhost:8080/u-and-me/tmp/Front/shop/productDetail.html?prodId=${product.prodId}" id="prodId_redirect" style=" text-decoration: none;">
+                                                <img src="data:image/jpeg;base64,${base64Image}" id="prod_Img" alt="商品照片" class="card-img-top" style=" width: 255px;height: 250px;object-fit: cover;">
+                                                    <div class="card-body">
+                                                        <h5 id="prodName_${product.prodId}" class="card-title"  style="color: black; font-size: 18px;">${product.prodName}</h5>
+                                                        <p class="card-text" style="color: black; font-size: 16px;">NT$ ${product.prodPri}</p>
+                                                    </div>
+                                                    </a>
+                                            </div>
+                                            `;
+                div.innerHTML = text;
+                //指定img.src把圖片資料給他
+                productCatResults.appendChild(div);
+            });
+        }
+
+          // <!--購物車icon會根據memId跳轉到購物車詳情頁面，並將資料映射到相關欄位上-->
+          async function redirectToCartPage() {
+                const newPageUrl = `${baseUrl}tmp/Front/shop/shoppingCart.html`;
+                window.location.href = newPageUrl;
+         }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../customer/dist/js/customerChat.js"></script>
+</body>
+
+</html>

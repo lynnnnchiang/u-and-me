@@ -1,0 +1,224 @@
+  /* 關閉按鈕控制 */
+  .bi-x-lg:hover {
+    cursor: pointer;
+    filter: drop-shadow(2.5px 2.5px 2.5px #58574c);
+  }
+
+  /* 傳送按鈕控制 */
+  #btn-chat:hover {
+    filter: drop-shadow(1px 1px 1px #58574c);
+  }
+
+  #btn-chat {
+    margin-left: 8px;
+  }
+
+  /* 影響對話框大小 */
+  .col-md-2,
+  .col-md-10 {
+    padding: 0;
+  }
+
+  .panel {
+    margin-bottom: 0px;
+  }
+
+  /* 輸入框底色 */
+  .panel-footer {
+    background-color: #f0efec;
+  }
+
+  #btn-input {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    border-radius: 0px;
+    border: 0.5px solid #c9bdaf;
+
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #7e1224;
+    background-color: #fff;
+    background-clip: padding-box;
+    appearance: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  .chat-window {
+    bottom: 0;
+    box-shadow: 0px 2px 20px 5px #ccc;
+  }
+
+
+  .chat-window>div>.panel {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .icon_minim {
+    padding: 2px 10px;
+  }
+
+
+  .msg_container_base {
+    background: #efefef;
+    margin: 0;
+    padding: 0 10px 10px;
+    max-height: 330px;
+    overflow-x: hidden;
+  }
+
+  /* 對話框頂部 */
+  .top-bar {
+    background: #b3a595;
+    color: white;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-title {
+    text-align: center;
+    padding-left: 110px;
+    padding-top: 8px;
+  }
+
+
+  /* 自己 */
+  .messages_self {
+    background: #fcf6e9;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+
+  .msg_receive_self {
+    padding-top: 15px;
+    padding-left: 13px;
+    margin-left: 100px;
+  }
+
+  .messages_self>p {
+    font-size: 13px;
+    margin: 0 0 0.2rem 0;
+    font-weight: bold;
+    color: #363434;
+    padding-bottom: 5px;
+    word-break: break-all;
+  }
+
+  .messages_self>time {
+    font-size: 11px;
+    color: #887c7c;
+  }
+
+  .img-responsive_self {
+    display: block;
+    width: 80%;
+    padding-top: 15px;
+    margin-left: 8px;
+  }
+
+  /* 對話對象 */
+  .messages_user {
+    background: white;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+
+  .msg_receive_user {
+    padding-top: 15px;
+    padding-left: 15px;
+    margin-right: 100px;
+  }
+
+  .messages_user>p {
+    font-size: 13px;
+    margin: 0 0 0.2rem 0;
+    font-weight: bold;
+    color: #363434;
+    padding-bottom: 5px;
+    word-break: break-all;
+  }
+
+  .messages_user>time {
+    font-size: 11px;
+    color: #887c7c;
+  }
+
+  .img-responsive_user {
+    display: block;
+    width: 80%;
+    padding-top: 15px;
+    margin-left: 2px;
+  }
+
+  /*******************************/
+
+  /* 對話框間距 */
+  .msg_container {
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  /* 大頭貼框 */
+  .avatar {
+    position: relative;
+  }
+
+  /* .msg_sent>time {
+      float: right;
+    } */
+
+  .msg_container_base::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #e6e4e4;
+  }
+
+  .msg_container_base::-webkit-scrollbar {
+    width: 5.5px;
+    background-color: #f5f5f5;
+  }
+
+  .msg_container_base::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+    background-color: #92877b;
+  }
+
+  .btn-group.dropup {
+    position: fixed;
+    left: 0px;
+    bottom: 0;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  #chat-icon {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+  }
+
+  /* 調整整個聊天室的位置 */
+  #chatBox {
+    position: fixed;
+    right: 100px;
+    bottom: 60px;
+    z-index: 100;
+  }
+
+  #alert {
+    position: absolute;
+    top: -4px;
+    right: 50px;
+    z-index: 1090;
+  }

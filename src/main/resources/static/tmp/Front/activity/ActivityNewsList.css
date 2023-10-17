@@ -1,0 +1,70 @@
+/* #header {
+    background: url(https://images.unsplash.com/photo-1415795854641-f4a487a0fdc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80) center center / cover no-repeat ;
+  } */
+
+.navbar-brand {
+    height: 70px;
+}
+
+.navbar-brand>img {
+    height: 115px;
+    margin-top: -23px;
+}
+
+.card h5{
+    color:#4c6182;
+    font-weight:600;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 將卡片的高度設定為100%，以便內容充滿整個卡片 */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 將內容元素在垂直方向上均勻分佈 */
+    height: 100%; /* 將卡片內容的高度設定為100%，以便內容充滿整個卡片內容區域 */
+}
+
+.card-title,
+.btn {
+    margin: 0; /* 清除元素的預設邊距 */
+}
+
+.card-text{
+    margin: 0; /* 清除元素的預設邊距 */
+    overflow: hidden; /* 隱藏超出的部分 */
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 顯示行數 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 截斷顯示(...) */
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+}
+
+.form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-control{
+    background: #fff0;
+}
+

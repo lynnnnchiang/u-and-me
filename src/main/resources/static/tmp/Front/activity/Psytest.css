@@ -1,0 +1,201 @@
+header {
+    text-align: center;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.913)
+        /* padding: 10px; */
+}
+
+.headPart {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.h1part {
+    width: 14%;
+    display: inline-block;
+}
+
+.h1part span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.h2part {
+    width: 68%;
+    display: inline-block;
+
+}
+
+.h3part {
+    width: 14%;
+    display: inline-block;
+}
+
+.progress-container,
+.progress-container .progress {
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-container {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, .1)
+}
+
+.progress-container .progress {
+    width: 0%;
+    background-color: #e59560b9;
+}
+
+/* 題目區 */
+.quesPart {}
+
+/* 題目標題 */
+.quesPart h1 {
+    font-size: 28px;
+    color: rgb(32, 54, 78)
+}
+
+/* 選項列表 */
+.quesPart .answerList {
+    list-style: none;
+    padding: 0px;
+}
+
+/* 選項列表 項目 */
+.quesPart .answerList li {
+    border: 2px solid #e59560b9;
+    margin: 10px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+/* 選項列表 項目 選項序號 A/B/C/D */
+.quesPart .answerList li .opt {
+    display: inline-block;
+    width: 7%;
+    text-align: left;
+    font-size: 22px;
+    color: rgb(39, 66, 96)
+}
+
+/* 選項列表 項目 選項內容 */
+.quesPart .answerList li .optContent {
+    display: inline-block;
+    width: 80%;
+    font-size: 20px;
+    color: rgb(42, 61, 81)
+}
+
+/* 選項列表 項目 單選按鈕 */
+.quesPart .answerList li .optRadio {
+    display: inline-block;
+    width: 7%;
+}
+
+/* 選項列表 項目 單選按鈕 偽類選擇器  */
+input[type='radio']:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #f6eee8bf;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #eeecec;
+}
+
+/* 選項列表 項目 單選按鈕 選中時的 偽類選擇器  */
+input[type='radio']:checked:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #E59560;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+
+}
+
+/* 尾部按鈕 */
+.footerPart button {
+    background-color: #e59560b9;
+    width: 95%;
+    height: 40px;
+    margin: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* 總分 */
+.total-score {
+    font-size: 22px;
+}
+
+/* 結果 */
+.result-text {
+    font-size: 20px;
+}
+
+/* 調整問題的樣式 */
+.question {
+    font-weight: bold;
+}
+
+/* 調整答案選項的樣式 */
+.answer {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.container {
+    border: 1px solid #cea857;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f6f5e8f7;
+    width: 70%;
+    /* 調整外框寬度 */
+    min-height: 350px;
+    height: auto;
+    /* 調整外框高度 */
+    margin: 0 auto;
+    /* 水平置中 */
+}
+
+body {
+    background-image: url('phy.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0; /* 重置默認的 margin 和 padding */
+    padding: 0;
+    min-height: 100vh; /* 設定最小高度為視窗高度的 100% */
+
+}
+
+.personality-description {
+    margin-top: 0px;
+    font-size: 20px;
+    color: #000000;
+    border: 2px solid #e59560b9;
+    padding: 20px; /* 內邊距 */
+    border-radius: 10px;
+    text-align: left;
+    color: rgb(32, 54, 78);
+}
+
+h3 {
+    margin-top: -2px;
+    color: rgb(32, 54, 78);
+    text-align: center;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>使用GET請求方式取得JSON回應字串</title>
+    <style>
+        .schedulesTable { border-collapse:collapse}
+        .schedulesTable th{ background-color:#BFBFFF;
+                        color:blue;
+                        text-align:right;
+                        border-style:dotted;
+                        font-weight:normal;
+                        padding : 5px;
+                     }
+        .schedulesTable td{
+                      border:2px dotted deepPink;
+                      padding:5px;
+                     }
+
+    </style>
+    <!-- <script src="json.js"></script> -->
+</head>
+<body>
+<table align="center">
+    <tr>
+        <td>員工帳號</td>
+        <td><input type="text" name="schId" id="schId">( 1-10 )</td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="button" value="取得行程資料" onClick="getSchedule();">
+        </td>
+    </tr>
+</table>
+<div id="showPanel">
+</div>
+
+<script>
+    function showSchedule(json){
+      //剖析json字串,將其轉成js物件
+      let sch = JSON.parse(json); //{}, {schId:1, schName:"ABC",...}
+      let html;
+
+      if(sch.schId){
+        html = `<table class="schedulesTable">
+        <tr><th>行程名稱</th><td>${sch.schName}</td></tr>
+        <tr><th>會員ID</th><td>${sch.memId}</td></tr>
+        <tr><th>開始日期</th><td>${sch.schStart}</td></tr>
+        <tr><th>結束日期</th><td>${sch.schEnd}</td></tr>
+        <tr><th>行程公開權限</th><td>${sch.schPub}</td></tr>
+        <tr><th>行程複製權限</th><td>${sch.schCopy}</td></tr>
+        <tr><th>預估行程消費</th><td>${sch.schCost}</td></tr>
+      </table>`;
+      }else{
+        html = "<center>查無此行程資料</center>";
+      }
+
+      document.getElementById("showPanel").innerHTML = html;
+    }
+
+    function getSchedule(){
+      let xhr = new XMLHttpRequest();
+      //設定好回呼函數
+      xhr.onload = function (){
+          if( xhr.status == 200){
+            //document.getElementById("showPanel").innerHTML = xhr.responseText;
+            console.log(xhr.responseText);
+            showSchedule(xhr.responseText);
+          }else{
+            alert( xhr.status );
+          }//xhr.status == 200
+      };//onload
+
+      //建立好Get連接
+      let url= "GetJson_FromDb.jsp?schId=" + document.getElementById("schId").value;
+      xhr.open("Get",url,true);
+      //送出請求
+      xhr.send( null );
+    }
+
+</script>
+</body>
+</html>

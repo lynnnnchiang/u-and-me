@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot Example</title>
+    <link rel="stylesheet" href="css/test.css" />
+</head>
+<body>
+<h1>Welcome to Spring Boot</h1>
+
+
+
+    <a href="">go to AttractionMapPage</a>
+    <input type="submit" id="attractionMap">
+
+
+<div>
+    <label for="attractionId">Enter Attraction ID: </label>
+    <input type="text" id="attractionId" th:value="${attractionID}">
+    <button id="loadAttraction">Load Attraction</button>
+</div>
+
+<div id="id"></div>
+<div id="name"></div>
+
+<form action="getAttraction" method="get">
+    <a href="">go to jsp/getOneAttr.jsp</a>
+    <input type="text" name="id">ㄒ
+    <input type="submit">
+</form>
+
+<form action="getAllAttr">
+    <a href="">go to getAllAttr</a>
+    <input type="submit" >
+</form>
+
+<form action="yt">
+    <a href="">go to yt_layout</a>
+    <input type="submit">
+</form>
+
+<form action="bootstrap12">
+    <a href="">go to jsp/bootstrap12.jsp</a>
+    <input type="submit">
+</form>
+
+<form action="register">
+    <a href="">go to register</a>
+    <input type="submit">
+</form>
+
+<p th:text="${message}"></p>
+<!--<script src="../static/js/jquery-3.7.0.min.js"</script>-->
+<script th:src="@{/js/jquery-3.7.0.min.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
+<script src="js/fetchForward.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let baseURL = window.location.protocol + "//" + window.location.host + "/u-and-me/";
+
+      window.location.href = baseURL+"tmp/Front/activity/ActivityIndex.html";
+    });
+
+</script>
+</body>
+</html>
+

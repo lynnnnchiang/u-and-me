@@ -1,0 +1,1177 @@
+<!-- 自定義距離以及時間預估顯示 刪除部分預設錨點 -->
+<!-- 功能補充:
+    ENTER自動選取第一個選項
+    更改交通方式直接變化路線及距離、時間
+    搜尋到景點預設僅顯示最後一筆查詢的簡易資訊
+    動態新增更多景點
+    新增景點同時增加行程欄位及相關連結 -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>U & ME | 行程規劃 | 我的行程 | 編輯行程</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/css/myAttractionEdit.css">
+    <script src="https://kit.fontawesome.com/6767d9ab33.js" crossorigin="anonymous"></script>
+    <!-- 警示窗 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- LOGO ICON -->
+    <link rel="shortcut icon" href="../../Front/dist/img/favicon.ico" type="image/x-icon">
+    <!-- 傳送圖片icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <!-- 客服聊天室 -->
+    <link rel="stylesheet" href="../customer/dist/css/customerChat.css">
+</head>
+
+<body>
+    <div class="container2">
+        <!-- -----Header----- -->
+        <nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top"
+            style="box-shadow: 0px 2px 5px lightgray; padding: 0;">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../activity/ActivityIndex.html">
+                    <img src="../dist/img/uandmelogo-removebg-preview.png">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../activity/ActivityIndex.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">活動資訊</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../activity/ActivityNewsList.html">News</a></li>
+                                <li><a class="dropdown-item" href="../activity/ActivityPeriodList.html">期間限定</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../../Front/attraction/attractionList.html">旅遊景點</a>
+                        </li>
+
+
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../group/groupList.html">揪團專區</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../shop/shoppingMall.html">旅遊商城</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">論壇專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../article/articleindex/ArticleIndex.html">論壇</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../article/posting/posting.html">發表新文章</a></li>
+                            </ul>
+                        </li>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../customer/CustomerContact.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">客服專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../customer/CustomerQa.html">Q&A專欄</a></li>
+                                <li><a class="dropdown-item" href="../customer/CustomerContact.html">聯絡我們</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../member/memberCenter.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                            </svg>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../shop/shoppingCart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                            </svg>
+
+                        </a>
+
+
+
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+
+        <div class="container" style="margin: 0;padding: 0;">
+            <!-- -----Content----- -->
+            <div class="content">
+                <section style="height: 100%; width: 100%; position: absolute; top: 56px;">
+                    <div class="container-fluid" style="height: 100%;">
+                        <div class="row" style="height: 100%;">
+                            <!-- The Function Adjust Position -->
+                            <div class="col-12 col-lg-4" style="padding: 0;height: 587px;">
+                                <!-- <img src="https://picsum.photos/300/200?random=10" > -->
+
+                                <!-- --------------- 行程細節 --------------- -->
+                                <!-- 行程細節側邊欄 -->
+                                <div class="viewSchDetailsColumn">
+                                    <div class="schOutline">
+                                        <!-- 景點圖片 -->
+                                        <div class="schDetailbgPic">
+                                            <img src="../dist/img/scheduleimg/trip21.jpeg" id="attrPic" alt="..." style="
+                                                width:100%;height:100%;object-fit: cover;">
+                                        </div>
+                                        <!-- ------ 行程細節上方返回、編輯bar ------ -->
+                                        <div class="schDetailsTopBar">
+                                            <!-- 返回我的行程箭頭 -->
+                                            <a href="javascript:history.go(-1);" id="backToMySchedule"><i
+                                                    class="fa-solid fa-arrow-left"></i></a>
+                                            <!-- 行程名稱 -->
+                                            <div id="mySchName" class="mySchName">行程名稱行程名稱行程名稱行程名稱行程名稱行程名稱</div>
+                                        </div>
+                                    </div>
+                                    <!-- 景點詳細資訊內容 -->
+                                    <div class="card-body attrDetails">
+                                        <!-- 景點名稱(標題) -->
+                                        <div class="card-title" id="attrNameTitle"
+                                            style="font-size: 1.5rem;font-weight: bold;margin: 0px;">
+                                            緯育TibaMe附設中壢職訓中心</div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <span id="attrIdText" style="display: none;">attrId</span>
+                                                <!-- 景點評價分數 -->
+                                                <span><i class="fa-solid fa-star"></i></span>
+                                                <span id="attrComScore">5.0</span>
+                                                <!-- 景點類型 -->
+                                                <span　class="attrTypeIcon"
+                                                    style="font-size: 0.9rem;margin-left: 40px;">　　　　　　　　
+                                                    <i class="fa-solid fa-tag"></i></span>
+                                                <span id="attrTypeName">海鮮餐廳</span>
+                                            </li>
+                                            <!-- 景點地址 -->
+                                            <li class="list-group-item">
+                                                <span><i class="fa-solid fa-location-dot"></i> 地址</span><br>
+                                                <span id="attrAddress">320桃園市中壢區復興路46號9樓</span>
+                                            </li>
+                                            <!-- 營業時間 -->
+                                            <li class="list-group-item">
+                                                <span><i class="fa-regular fa-clock"></i> 營業時間</span>
+                                                <div class="attrBussTime" id="attrBussTimeMon"
+                                                    style="font-size: 0.9rem;">
+                                                    星期一　　　　　　　　09:00~11:00</div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span><i class="fa-solid fa-sack-dollar"></i>消費價位</span>
+                                                <br>
+                                                <span id="attrCostRange">尚無資料</span>
+                                            </li>
+                                            <!-- 景點概略描述 -->
+                                            <li class="list-group-item">
+                                                <span><i class="fa-solid fa-comments"></i>景點描述</span>
+                                                <br>
+                                                <span id="attrIlla">尚無資料</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer attrDetailsCardFooter" style="padding: 10px 0px;">
+                                        <!-- 儲存景點按鈕 -->
+                                        <button type="button" style="margin: 0;" id="colBtn"
+                                            class="btn btn-outline-success addAttrCollect-btn"
+                                            onclick="addOrRemoveCollection()">加入收藏</button>
+                                        <!-- 移除收藏按鈕 -->
+                                        <!-- <button type="button"
+                                                    class="btn btn-outline-success removeAttrCollect-btn -off">移除收藏</button> -->
+                                        <!-- 加入行程按鈕(要跳到行程細節頁面) -->
+                                        <!-- <button type="button"
+                                                    class="btn btn-success addToSchedule-btn">加入行程</button> -->
+                                    </div>
+                                </div>
+                                <!-- 與以下CSS無關，但不可註解，否則js跑不出來 -->
+                                <!-- --------------- 景點搜尋相關 --------------- -->
+                                <div class="viewAttrSearchColumn -off">
+                                    <!-- 景點搜尋開始 -->
+                                    <div class="attrSearch-result">
+                                        <!-- 搜尋欄框框 -->
+                                        <div class="searchColumn" style="display: none;">
+                                            <div>
+                                                <input type="text" id="start" class="google_input_text1" ref="site"
+                                                    v-model="site" placeholder="請輸入地址">
+                                            </div>
+                                            <div>
+                                                <input type="text" id="searchAttrByName" class="google_input_text3"
+                                                    ref="site" v-model="site" placeholder="請輸入景點名稱">
+                                                <!-- ------------------------------------------------------- -->
+                                                <!-- Reynolds -->
+                                                <select name="attrType" id="attrType">
+                                                    <option selected value="default">--依照分類搜尋--</option>
+                                                    <option value="觀光景點">觀光景點</option>
+                                                    <option value="戶外景點">戶外景點</option>
+                                                    <option value="人文景點">人文景點</option>
+                                                    <option value="購物中心">購物中心</option>
+                                                    <option value="餐廳">餐廳</option>
+                                                    <option value="旅館">旅館</option>
+                                                    <option value="公家機關">公家機關</option>
+                                                    <option value="其他分類">其他分類</option>
+                                                </select>
+                                                <!-- ------------------------------------------------------- -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-8" style="padding: 0;">
+                                <!-- ================================GOOGLE API=================================== -->
+                                <div id="mapAndDirect">
+                                    <div class="map" id="map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn" id="chat-icon" style="position: fixed;">
+        <img src="../dist/img/chat/live-chat.png" style="width: 50px" />
+        <img src="../dist/img/chat/warning.png" style="width: 20px" id="alert" class="hide" />
+    </div>
+
+    <div class="hide" id="chatBox" style="width: 410px">
+        <div class="chat-window">
+
+            <div class="panel panel-default">
+
+                <!-- chat-title -->
+                <div class="panel-heading top-bar d-flex">
+                    <div class="col-md-8 col-xs-8">
+
+                        <h5 class="panel-title">客服聊天室</h5>
+                    </div>
+                    <div class="col-md-4 col-xs-4" style="margin-top: 5px; margin-left: 90px;">
+                        <i class="bi bi-x-lg fs-5" id="close"></i>
+                    </div>
+                </div>
+
+                <!-- chat-body -->
+                <div class="panel-body msg_container_base" id="msgContainer">
+
+                </div>
+
+                <!-- chat-input -->
+                <div class="panel-footer">
+                    <div class="input-group" style="padding: 6px;">
+                        <input id="btn-input" type="text" class="input-sm chat_input" placeholder="Message..."
+                            autocomplete="off" />
+                        <span class="input-group-btn">
+                            <button class="btn" id="btn-chat" style="background-color: #807971"
+                                onclick="sendMessage();">
+                                <i class="bi bi-send-fill text-white"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places"
+        async defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../customer/dist/js/customerChat.js"></script>
+
+    <!-- 加入切換版面操作的js -->
+    <!-- <script src="./dist/js/myAttractionEdit.js"></script> -->
+
+    <script>
+        let baseURL = window.location.protocol + "//" + window.location.host + "/u-and-me/";
+
+        var map;
+        var directionsRenderer;
+        var directionsService;
+        var stepDisplay;
+        var markerArray = [];
+
+        // var travelMode_el = document.getElementById("mode");
+        // var travelMode = travelMode_el.value;
+
+        // travelMode_el.addEventListener('change', function () {
+        //     travelMode = travelMode_el.value;
+        // });
+
+        async function initMap() {
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+            // directionsRenderer.setMap(map);
+            // directionsRenderer.setPanel(document.getElementById('directionsPanel'));
+
+
+            // 預設顯示的地點：台北市政府親子劇場
+            let location = {
+                lat: 25.0374865, // 經度
+                lng: 121.5647688 // 緯度
+            };
+
+            var mapOptions = {
+                zoom: 14,
+                center: location
+            }
+
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+            // map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            directionsRenderer.setMap(map);
+
+            // 建立地圖
+            this.map = new google.maps.Map(document.getElementById('map'), {
+                center: location,//location,
+                zoom: 16,
+                mapTypeId: 'terrain'
+            });
+
+            // Create a renderer for directions and bind it to the map.
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                // draggable: true,
+                map: map,
+                // panel: document.getElementById("directionsPanel"),
+            });
+            // directionsRenderer.addListener("directions_changed", () => {
+            //     const directions = directionsRenderer.getDirections();
+
+            //     if (directions) {
+            //         computeTotalDistance(directions);
+            //     }
+            // });
+
+        }
+
+        function calculateTravelTime(start, end, travelMode) {
+            // 设置起点和终点
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: travelMode // 可以是 'DRIVING', 'WALKING', 'BICYCLING', 'TRANSIT'
+            };
+
+            // 调用 Directions Service 来计算旅程时间
+            directionsService.route(request, function (response, status) {
+                if (status === 'OK') {
+                    // 获取路线和旅程信息
+                    var route = response.routes[0];
+                    var legs = route.legs[0];
+
+                    // 获取旅程的时间信息（text 表示可读的时间）
+                    var duration = legs.duration.text;
+
+                    // 在控制台打印旅程时间信息
+                    // console.log('Travel Duration:', duration);
+                    // document.getElementById("totalTime").innerHTML = duration;
+                    // 更新 Directions Renderer 显示路线
+                    directionsRenderer.setDirections(response);
+                } else {
+                    console.log('Directions request failed:', status);
+                }
+            });
+        }
+
+
+
+        function displayRoute(origin, destination, service, display) {
+            service
+                .route({
+                    origin: origin,
+                    destination: destination,
+                    // waypoints: [
+                    //     { location: "Adelaide, SA" },
+                    //     { location: "Broken Hill, NSW" },
+                    // ],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    avoidTolls: true,
+                })
+                .then((result) => {
+                    display.setDirections(result);
+                })
+                .catch((e) => {
+                    console.log("Could not display directions due to: " + e);
+                });
+        }
+
+        function computeTotalDistance(result) {
+            let total = 0;
+            const myroute = result.routes[0];
+
+            if (!myroute) {
+                return;
+            }
+
+            for (let i = 0; i < myroute.legs.length; i++) {
+                total += myroute.legs[i].distance.value;
+            }
+
+            total = total / 1000;
+            console.log(total + " km");
+            document.getElementById("totalDistance").innerHTML = total + " km";
+            return total;
+        }
+
+
+        // 地址自動完成 + 地圖的中心移到輸入結果的地址上
+        // function siteAuto() {
+
+        //     let options = {
+        //         // componentRestrictions: { country: 'tw' } // 限制在台灣範圍
+        //     };
+
+        //     let siteInput1 = document.querySelector('.google_input_text1');
+        //     let siteInput2 = document.querySelector('.google_input_text2');
+
+        //     // 監聽 input 變化
+        //     // if (siteInput)
+        //     siteInput1.addEventListener('input', function (event) {
+        //         let inputValue = event.target.value;
+        //         // 在這裡處理 inputValue
+        //     });
+        //     siteInput2.addEventListener('input', function (event) {
+        //         let inputValue = event.target.value;
+        //         // 在這裡處理 inputValue
+        //     });
+        //     // this.autocomplete = new google.maps.places.Autocomplete(this.$refs.site, options);
+
+        //     var autocomplete1 = new google.maps.places.Autocomplete(siteInput1, options);
+        //     var autocomplete2 = new google.maps.places.Autocomplete(siteInput2, options);
+
+        //     // 地址的輸入框，值有變動時執行
+        //     autocomplete1.addListener('place_changed', () => {
+        //         this.place = autocomplete1.getPlace(); // 地點資料存進place
+
+        //         // 確認回來的資料有經緯度
+        //         if (this.place.geometry) {
+
+        //             // 改變map的中心點
+        //             let searchCenter = this.place.geometry.location;
+
+        //             // panTo是平滑移動、setCenter是直接改變地圖中心
+        //             this.map.panTo(searchCenter);
+
+        //             // 在搜尋結果的地點上放置標記
+        //             let marker = new google.maps.Marker({
+        //                 // icon: {
+        //                 //     path: google.maps.SymbolPath.CIRCLE,
+        //                 //     scale: 10
+        //                 // },
+        //                 position: searchCenter,
+        //                 map: this.map
+        //             });
+
+        //             // info window
+        //             let infowindow = new google.maps.InfoWindow({
+        //                 content: this.place.formatted_address
+        //             });
+        //             infowindow.open(this.map, marker);
+        //         }
+        //     });
+        //     autocomplete2.addListener('place_changed', () => {
+        //         this.place = autocomplete2.getPlace(); // 地點資料存進place
+
+        //         // 確認回來的資料有經緯度
+        //         if (this.place.geometry) {
+
+        //             // 改變map的中心點
+        //             let searchCenter = this.place.geometry.location;
+
+        //             // panTo是平滑移動、setCenter是直接改變地圖中心
+        //             this.map.panTo(searchCenter);
+
+        //             // 在搜尋結果的地點上放置標記
+        //             let marker = new google.maps.Marker({
+        //                 // icon: {
+        //                 //     path: google.maps.SymbolPath.CIRCLE,
+        //                 //     scale: 10
+        //                 // },
+        //                 position: searchCenter,
+        //                 map: this.map
+        //             });
+
+        //             // info window
+        //             let infowindow = new google.maps.InfoWindow({
+        //                 content: this.place.formatted_address
+        //             });
+        //             infowindow.open(this.map, marker);
+        //         }
+        //     });
+        // }
+        //manual fixed
+        // var start_el = document.getElementById('start');
+        // var end_el = document.getElementById('end');
+        // var start = start_el.value;
+        // var end = end_el.value;
+        // var myAttrAddr_el = document.getElementById("myAttrAddr");
+        // var myAttrAddr = myAttrAddr_el.value;
+
+        //********************************************更改開始***********************************************
+        //2023/09/10 Reynolds
+
+
+        function singleSiteAuto() {
+            console.log("In sigleSiteAuto");
+            let options = {
+                // componentRestrictions: { country: 'tw' } // 限制在台灣範圍
+            };
+
+            let siteInput1 = document.querySelector('#start');
+            // let siteInput1 = myAttrAddr_el;
+
+            var autocomplete1 = new google.maps.places.Autocomplete(siteInput1, options);
+            // 地址的輸入框，值有變動時執行
+            autocomplete1.addListener('place_changed', async () => {
+                this.place = autocomplete1.getPlace(); // 地點資料存進place
+
+                // 確認回來的資料有經緯度
+                if (this.place.geometry) {
+
+                    // 改變map的中心點
+                    let searchCenter = this.place.geometry.location;
+
+                    // panTo是平滑移動、setCenter是直接改變地圖中心
+                    this.map.panTo(searchCenter);
+
+                    attrLat = this.place.geometry.location.lat();
+                    attrLon = this.place.geometry.location.lng();
+                    inputAttrBussTime = await getBussTime(place.place_id);
+
+                    console.log("LAT: " + attrLat);
+                    console.log("LON: " + attrLon);
+
+                    // 在搜尋結果的地點上放置標記
+                    let marker = new google.maps.Marker({
+                        // icon: {
+                        //     path: google.maps.SymbolPath.CIRCLE,
+                        //     scale: 10
+                        // },
+                        position: searchCenter,
+                        map: this.map
+                    });
+
+                    // info window
+                    let infowindow = new google.maps.InfoWindow({
+                        content: attr.attrAddr
+                    });
+                    infowindow.open(this.map, marker);
+                }
+            });
+        }
+
+        var inputAttrBussTime = ``;
+        async function getBussTime(place_id) {
+            return new Promise((resolve, reject) => {
+                const placesService = new google.maps.places.PlacesService(map);
+                placesService.getDetails({ placeId: place_id }, (placeResult, placeStatus) => {
+                    if (placeStatus === google.maps.places.PlacesServiceStatus.OK) {
+                        const openingHours = placeResult.opening_hours;
+
+                        // 检查是否有开放时间信息
+                        if (openingHours) {
+                            const periods = openingHours.periods;
+
+                            // 处理开放时间信息
+                            periods.forEach((period) => {
+                                const openTime = period.open ? period.open.time : "";
+                                const closeTime = period.close ? period.close.time : "";
+                                inputAttrBussTime += `${openTime}~${closeTime}|`;
+                                console.log(`开放时间：${openTime} - ${closeTime}`);
+                            });
+                            resolve(inputAttrBussTime);
+                        } else {
+                            console.log("没有可用的开放时间信息。");
+                        }
+                    } else {
+                        console.error("获取景点详情时发生错误：", placeStatus);
+                        reject(placeStatus);
+                    }
+                });
+            });
+        }
+        var searchAttrByName = document.getElementById('searchAttrByName');
+        searchAttrByName.addEventListener("change", async function () {
+            const response = await fetch(baseURL + `getAttrsByNameFilter/` + searchAttrByName.value);
+            const resJson = await response.json();
+            const attrList = resJson.body;
+
+            // 清空景點收藏清單插入處所有的資料
+            attrSearchListInsert_el.innerHTML = "";
+
+            // 加入async試試看(找出每一個景點收藏)
+            for (let attr of attrList) {
+                // 依據每個景點收藏清單的景點id，查詢對應的景點詳細資訊
+                // 找出每一個景點收藏中景點的資料：如景點名稱
+
+                // 景點的第一張圖片編號、景點的第一張圖片
+                const responseOfAttrFirstPic = await fetch(getAttrPicsByAttrIdURL + attr.attrId);
+                const attrPicList = await responseOfAttrFirstPic.json();
+                console.log(attrPicList);
+                const pics = attrPicList.attrPic;
+                let picInput;
+
+                if (!pics[0]) {
+                    picInput = pic;// pic.js base64
+                    // 如果 pics[0] 是空值，使用 "replace"
+                } else {
+                    picInput = pics[0].attrPicData;
+                }
+
+                // 動態生成每一個景點資訊框
+                let row = document.createElement("div");
+                row.innerHTML = `
+                        <div class="attrCell card mb-3" onclick="viewSearchResultOfOneAttr(${attr.attrId})" id="attrId${attr.attrId}">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="attrCardBody">
+                                    <h5 class="attrName">
+                                        <div id="attrName">
+                                            ${attr.attrName}
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="attrPic col-md-4">
+                                <img src="data: image/jpeg;base64,${picInput}"
+                                    class="img-fluid rounded-end" alt="..."
+                                    style="width: 140.219px;height: 92.208px;object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>`;
+
+                attrSearchListInsert_el.appendChild(row);
+            }
+        })
+        //-----------------------------------------------------------------------------------
+        //Reynolds
+        const attrTypeSearch_el = document.getElementById("attrType");
+        attrTypeSearch_el.addEventListener("change", async function () {
+            const searchType = attrTypeSearch_el.value;
+            const response = await fetch(baseURL + `getAttrsByType/` + searchType);
+            const attrList = await response.json();
+            attrTypeSearch_el.options[0].disabled = true;
+            // 清空景點收藏清單插入處所有的資料
+            attrSearchListInsert_el.innerHTML = "";
+
+            // 加入async試試看(找出每一個景點收藏)
+            for (let attr of attrList) {
+                // 依據每個景點收藏清單的景點id，查詢對應的景點詳細資訊
+                // 找出每一個景點收藏中景點的資料：如景點名稱
+
+                // 景點的第一張圖片編號、景點的第一張圖片
+                const responseOfAttrFirstPic = await fetch(getAttrPicsByAttrIdURL + attr.attrId);
+                const attrPicList = await responseOfAttrFirstPic.json();
+                console.log(attrPicList);
+                const pics = attrPicList.attrPic;
+                let picInput;
+
+                if (!pics[0]) {
+                    picInput = pic;// pic.js base64
+                    // 如果 pics[0] 是空值，使用 "replace"
+                } else {
+                    picInput = pics[0].attrPicData;
+                }
+
+                // 動態生成每一個景點資訊框
+                let row = document.createElement("div");
+                row.innerHTML = `
+                        <div class="attrCell card mb-3" onclick="viewSearchResultOfOneAttr(${attr.attrId})" id="attrId${attr.attrId}">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="attrCardBody">
+                                    <h5 class="attrName">
+                                        <div id="attrName">
+                                            ${attr.attrName}
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="attrPic col-md-4">
+                                <img src="data: image/jpeg;base64,${picInput}"
+                                    class="img-fluid rounded-end" alt="..."
+                                    style="width: 140.219px;height: 92.208px;object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>`;
+
+                attrSearchListInsert_el.appendChild(row);
+            }
+
+        })
+
+        //-----------------------------------------------------------------------------------
+        //********************************************更改結束***********************************************
+
+
+        // start_el.addEventListener('change', function () {
+        //     console.log("From: " + start_el.value + ",  To: " + end_el.value);
+        //     siteAuto();
+        //     calculateTravelTime(start_el.value, end_el.value, travelMode);
+        //     displayRoute(
+        //         start_el.value,// "Perth, WA",haight
+        //         end_el.value,// "Sydney, NSW",oceanBeach
+        //         directionsService,
+        //         directionsRenderer
+        //     );
+        // })
+        // end_el.addEventListener('change', function () {
+        //     console.log("From: " + start_el.value + ",  To: " + end_el.value);
+        //     siteAuto();
+        //     calculateTravelTime(start_el.value, end_el.value, travelMode);
+        //     displayRoute(
+        //         start_el.value,// "Perth, WA",haight
+        //         end_el.value,// "Sydney, NSW",oceanBeach
+        //         directionsService,
+        //         directionsRenderer
+        //     );
+        // })
+
+        const attrName = document.getElementById("mySchName");
+        const attrAddr = document.getElementById("attrAddress");
+        const attrBussTime = document.getElementById("attrBussTimeMon");
+        const attrType = document.getElementById("attrTypeName");
+        const attrCostRange = document.getElementById("attrCostRange");
+        const attrIlla = document.getElementById("attrIlla");
+        const attrPic_img = document.getElementById("attrPic");
+        const attrName2 = document.getElementById("attrNameTitle");
+        const colBtn = document.getElementById("colBtn");
+
+        // 監聽網頁載入事件
+        window.addEventListener('load', async () => {
+            initMap();
+            const currentURL = window.location.href;
+            const urlSearchParams = new URLSearchParams(currentURL.split('?')[1]);
+            const attrId = urlSearchParams.get('attrId');
+            const response = await fetch(baseURL + `getAttr?attrId=` + attrId);
+            const attr = await response.json();
+            attrName.innerText = attr.attrName;
+            attrName2.innerText = attr.attrName;
+            attrAddr.innerText = attr.attrAddr;
+            attrBussTime.innerText = bussTimeString(attr.attrBussTime);
+            attrType.innerText = attr.attrType;
+            attrCostRange.innerText = codeToPriceRange(attr.attrCostRange);
+            attrIlla.innerText = attr.attrIlla;
+
+            const responseOfAttrAllPic = await fetch(baseURL + `getAttrPics/` + attrId);
+            const attrPicList = await responseOfAttrAllPic.json();
+            const pics = attrPicList.attrPic;
+            attrPic_img.src = "data: image/jpeg;base64," + pics[0].attrPicData;
+
+            // reloadMap();
+            let location = {
+                lat: attr.attrLat, // 經度
+                lng: attr.attrLon // 緯度
+            };
+            this.map = new google.maps.Map(document.getElementById('map'), {
+                center: location,//location,
+                zoom: 16,
+                mapTypeId: 'terrain'
+            });
+            // 在搜尋結果的地點上放置標記
+            let marker = new google.maps.Marker({
+                // icon: {
+                //     path: google.maps.SymbolPath.CIRCLE,
+                //     scale: 10
+                // },
+                position: location,
+                map: this.map
+            });
+
+            // info window
+            // let infowindow = new google.maps.InfoWindow({
+            //     content: this.place.formatted_address
+            // });
+            // infowindow.open(this.map, marker);
+            // addOrRemoveCollection();
+            const response2 = await fetch(baseURL + `attrCol/ifMemContainAttrInCol/` + attrId);
+            const relationExist = await response2.json();
+            if (relationExist.body.collectionId == undefined) {
+                colBtn.innerText = "加入收藏";
+            }
+            else {
+                colBtn.innerText = "移除收藏";
+            }
+            return relationExist;
+        });
+
+        function reloadMap() {
+            if (directionsService == undefined || directionsService == null)
+                directionsService = new google.maps.DirectionsService();
+            if (directionsRenderer == undefined || directionsRenderer == null)
+                directionsRenderer = new google.maps.DirectionsRenderer();
+            initMap();
+            singleSiteAuto();
+            // siteAuto();
+        }
+
+        // 監聽夜間模式變化
+        // document.getElementById('nightModeSwitch').addEventListener('change', (event) => {
+        //     googleMap.nightModeChange(event.target.checked ? 'open' : 'close');
+        // });
+
+
+        // 2023/09/11
+        function mapApiBetw2(travelIconCount) {
+            const travelIconCount_el = document.getElementById("travelIconCount" + travelIconCount);
+            const ancestor = travelIconCount_el.parentElement.parentElement.parentElement;
+            const prevCell = ancestor.previousSibling.lastChild;
+            const nextCell = ancestor.nextSibling;
+
+            var addr1 = document.querySelector(`#attrAddr${travelIconCount}`).innerText;
+            var addr2 = document.querySelector(`#attrAddr${travelIconCount + 1}`).innerText;
+            console.log("addr1: " + addr1);
+            console.log("addr2: " + addr2);
+
+
+            let result = [addr1, addr2];
+            calculateTravelTime2(travelIconCount, addr1, addr2, travelIconCount_el.value);
+            // computeTotalDistance2(travelIconCount, result);
+
+
+            // console.log('Travel Duration:', totalDuration);
+            // console.log(totalDistance + " km");
+
+            console.log("In mapApiBetw2");
+        }
+        function reloadMapApiBetw2(travelIconCount) {
+            initMap();
+            const travelIconCount_el = document.getElementById("travelIconCount" + travelIconCount);
+            const ancestor = travelIconCount_el.parentElement.parentElement.parentElement;
+            const prevCell = ancestor.previousSibling.lastChild;
+            const nextCell = ancestor.nextSibling;
+
+            var addr1 = document.querySelector(`#attrAddr${travelIconCount}`).innerText;
+            var addr2 = document.querySelector(`#attrAddr${travelIconCount + 1}`).innerText;
+            console.log("addr1: " + addr1);
+            console.log("addr2: " + addr2);
+
+
+            let result = [addr1, addr2];
+            calculateTravelTime2(travelIconCount, addr1, addr2, travelIconCount_el.value);
+            // computeTotalDistance2(travelIconCount, result);
+
+
+            // console.log('Travel Duration:', totalDuration);
+            // console.log(totalDistance + " km");
+
+            console.log("In mapApiBetw2");
+        }
+
+        // function computeTotalDistance2(travelIconCount, result) {
+        //     let total = 0;
+        //     const myroute = result.routes;
+
+        //     if (!myroute) {
+        //         return;
+        //     }
+
+        //     for (let i = 0; i < myroute.legs.length; i++) {
+        //         total += myroute.legs[i].distance.value;
+        //     }
+
+        //     total = total / 1000;
+        //     console.log(total + " km");
+        //     let totalDistance = total;
+
+        //     const transTotalTime_el = document.getElementById("transTotalTime" + travelIconCount);
+        //     const span = document.createElement("span");
+        //     span.classList.add("transTotalTime");
+        //     const spanInner = document.createElement("span");
+        //     spanInner.classList.add("totalDistance");
+        //     spanInner.innerText = total + " km";
+        //     span.appendChild(spanInner);
+        //     transTotalTime_el.appendChild(span);
+
+        //     // document.getElementById("totalDistance").innerHTML = total + " km";
+        //     return total;
+        // }
+
+        function calculateTravelTime2(travelIconCount, start, end, travelMode) {
+            // 设置起点和终点
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: travelMode // 可以是 'DRIVING', 'WALKING', 'BICYCLING', 'TRANSIT'
+            };
+
+            // 调用 Directions Service 来计算旅程时间
+            directionsService.route(request, function (response, status) {
+                if (status === 'OK') {
+                    // 获取路线和旅程信息
+                    var route = response.routes[0];
+                    var legs = route.legs[0];
+
+                    // 获取旅程的时间信息（text 表示可读的时间）
+                    var duration = legs.duration.text;
+
+                    // 在控制台打印旅程时间信息
+                    // console.log('Travel Duration:', duration);
+                    // document.getElementById("totalTime").innerHTML = duration;
+
+                    let total = 0;
+                    for (let i = 0; i < route.legs.length; i++) {
+                        total += route.legs[i].distance.value;
+                        console.log(i);
+                    }
+
+                    total = total / 1000;
+                    console.log(total + " km");
+                    totalDuration = duration;
+                    // 更新 Directions Renderer 显示路线
+                    directionsRenderer.setDirections(response);
+
+                    const transTotalTime_el = document.getElementById("transTotalTime" + travelIconCount);
+                    transTotalTime_el.lastChild.remove();
+                    let row = document.createElement("span");
+                    row.classList.add("transTotalTime");
+                    row.innerHTML = `
+                                <span class="totalTime">${duration}</span>
+                                <span class="showRouteBetween"><button onclick="showRoute(${travelIconCount})">顯示路線</button><span>
+                                <span class="totalDistance">${total} km</span>
+                                `;
+                    transTotalTime_el.appendChild(row);
+
+                    return duration;
+                } else {
+                    console.log('Directions request failed:', status);
+                }
+            });
+        }
+
+
+
+        function calculateMultipleTravelTimes(waypoints, travelMode) {
+            // 设置起点、终点和途经点
+            var origin = waypoints[0];
+            console.log(waypoints[0]);
+            var destination = waypoints[waypoints.length - 1];
+            var intermediateWaypoints = waypoints.slice(1, waypoints.length - 1);
+
+            // 构建请求对象
+            var request = {
+                origin: origin,
+                destination: destination,
+                waypoints: intermediateWaypoints.map(function (waypoint) {
+                    return { location: waypoint, stopover: true };
+                }),
+                travelMode: travelMode // 可以是 'DRIVING', 'WALKING', 'BICYCLING', 'TRANSIT'
+            };
+
+            // 调用 Directions Service 来计算旅程时间
+            directionsService.route(request, function (response, status) {
+                if (status === 'OK') {
+                    // 更新 Directions Renderer 显示路线
+                    directionsRenderer.setDirections(response);
+
+
+                } else {
+                    console.log('Directions request failed:', status);
+                }
+            });
+        }
+
+        // function showAllRoute(travelMode) {
+        //     calculateMultipleTravelTimes(getAllWaypoints(),travelMode);
+        // }
+        // function showDayRoute(wayoints,travelMode) {
+        //     console.log(wayoints);
+        //     calculateMultipleTravelTimes(wayoints,travelMode);
+        // }
+        function showRoute(travelIconCount) {
+            initMap();
+            const travelIconCount_el = document.getElementById("travelIconCount" + travelIconCount);
+
+            const ancestor = travelIconCount_el.parentElement.parentElement.parentElement;
+            const prevCell = ancestor.previousSibling.lastChild;
+            const nextCell = ancestor.nextSibling;
+
+            var addr1 = document.querySelector(`#attrAddr${travelIconCount}`).innerText;
+            var addr2 = document.querySelector(`#attrAddr${travelIconCount + 1}`).innerText;
+            console.log("addr1: " + addr1);
+            console.log("addr2: " + addr2);
+
+            let result = [addr1, addr2];
+            var request = {
+                origin: addr1,
+                destination: addr2,
+                travelMode: travelIconCount_el.value // 可以是 'DRIVING', 'WALKING', 'BICYCLING', 'TRANSIT'
+            };
+
+            // 调用 Directions Service 来计算旅程时间
+            directionsService.route(request, function (response, status) {
+                if (status === 'OK') {
+                    // 获取路线和旅程信息
+                    var route = response.routes[0];
+                    var legs = route.legs[0];
+
+                    var duration = legs.duration.text;
+
+                    let total = 0;
+                    for (let i = 0; i < route.legs.length; i++) {
+                        total += route.legs[i].distance.value;
+                        console.log(i);
+                    }
+
+                    total = total / 1000;
+                    console.log(total + " km");
+                    totalDuration = duration;
+                    // 更新 Directions Renderer 显示路线
+                    directionsRenderer.setDirections(response);
+                };
+            });
+        }
+
+        function bussTimeString(inputString) {
+            // 使用逗号分割字符串，并将结果存储在数组中
+            if (inputString == undefined || inputString == null || inputString.trim() == '')
+                return "尚無資料";
+            if (inputString == "尚無資料" || inputString == "暫無資料")
+                return "尚無資料";
+            const timeRanges = inputString.split('|');
+
+            // 分别存储平日和假日的时间范围
+            let weekdayTimeRange = "";
+            let holidayTimeRange = "";
+
+            holidayTimeRange = timeRanges[0];
+            holidayTimeRangeArr = [];
+            holidayTimeRangeArr = holidayTimeRange.split('');
+            holidayTimeRange = holidayTimeRangeArr[0] + holidayTimeRange[1] + ":"
+                + holidayTimeRange[2] + holidayTimeRange[3] + "~"
+                + holidayTimeRange[5] + holidayTimeRange[6] + ":"
+                + holidayTimeRange[7] + holidayTimeRange[8];
+            weekdayTimeRange = timeRanges[1];
+            weekdayTimeRangeArr = [];
+            weekdayTimeRangeArr = weekdayTimeRange.split('');
+            weekdayTimeRange = weekdayTimeRangeArr[0] + weekdayTimeRange[1] + ":"
+                + weekdayTimeRange[2] + weekdayTimeRange[3] + "~"
+                + weekdayTimeRange[5] + weekdayTimeRange[6] + ":"
+                + weekdayTimeRange[7] + weekdayTimeRange[8];
+            const resultString = `平日:${weekdayTimeRange} | 假日:${holidayTimeRange}`;
+            return resultString;
+        }
+
+        function codeToPriceRange(code) {
+            switch (code) {
+                case 1:
+                    return "低價位 (500元以下)";
+                case 2:
+                    return "中價位 (500~1000元)";
+                case 3:
+                    return "高價位 (1000元以上)";
+                // 添加更多的代号和对应的描述
+                default:
+                    return "尚無資料";
+            }
+        }
+        async function addOrRemoveCollection() {
+
+            const currentURL = window.location.href;
+            const urlSearchParams = new URLSearchParams(currentURL.split('?')[1]);
+            const attrId = urlSearchParams.get('attrId');
+            const response = await fetch(baseURL + `attrCol/ifMemContainAttrInCol/` + attrId);
+            const relationExist = await response.json();
+            console.log(`test${attrId}`);
+            // console.log(JSON.stringify(relationExist, null, 2));
+            // console.log(attrId + "::" + relationExist.body.collectionId.attrId);
+            if (relationExist.body.collectionId != undefined) {
+                colBtn.innerText = "移除收藏";
+            }
+            return relationExist;
+        }
+        colBtn.addEventListener("click", async function () {
+            const currentURL = window.location.href;
+            const urlSearchParams = new URLSearchParams(currentURL.split('?')[1]);
+            const attrId = urlSearchParams.get('attrId');
+            const res = await fetch(baseURL + `member/getMemId`);
+            const mem = await res.json();
+            let collectionId = {
+                memId: mem.memId,
+                attrId: attrId
+            }
+
+            if (colBtn.innerText === "加入收藏") {
+                console.log(collectionId);
+
+                const response = await fetch(baseURL + `attrCol/addAttrToCollection`, {
+                    method: 'POST', // 或 'PUT'、'GET'、'DELETE'
+                    headers: {
+                        'Content-Type': 'application/json' // 指定请求主体的类型为JSON
+                    },
+                    body: JSON.stringify(collectionId)
+                });
+                const ans = await response.json();
+                colBtn.innerText === "移除收藏";
+
+                await Swal.fire(
+                    '收藏成功！',
+                    '您已成功將景點加入收藏！',
+                    'success'
+                );
+
+                location.reload();
+            }
+            else if (colBtn.innerText === "移除收藏") {
+                const response = await fetch(baseURL + `attrCol/removeAttrFromCollection`, {
+                    method: 'POST', // 或 'PUT'、'GET'、'DELETE'
+                    headers: {
+                        'Content-Type': 'application/json' // 指定请求主体的类型为JSON
+                    },
+                    body: JSON.stringify(collectionId)
+                });
+                const ans = await response.json();
+                colBtn.innerText === "加入收藏";
+
+                await Swal.fire(
+                    '刪除成功！',
+                    '您已成功將景點自收藏中移除！',
+                    'success'
+                );
+                location.reload();
+
+            }
+
+        })
+
+
+            //--------------------------------------------------------------------
+    </script>
+
+</body>
+
+</html>

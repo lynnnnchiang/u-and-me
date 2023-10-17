@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UandMe Online Shopping</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/css/regForm.css">
+    <link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon">
+
+    <!-- 傳送圖片icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <!-- 客服聊天室 -->
+    <link rel="stylesheet" href="../customer/dist/css/customerChat.css">
+    <style>
+        .svg {
+            fill: currentColor;
+            color: rgb(93, 164, 193);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../activity/ActivityIndex.html">
+                    <img src="../dist/img/uandmelogo-removebg-preview.png">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../activity/ActivityIndex.html" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">活動資訊</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../activity/ActivityNewsList.html">News</a></li>
+                                <li><a class="dropdown-item" href="../activity/ActivityPeriodList.html">期間限定</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../attraction/attractionList.html">旅遊景點</a>
+                        </li>
+                        <li class="nav-item dropdown me-2">
+                            <a class="nav-link dropdown-toggle" href="../schedule/scheduleList.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">行程規劃</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../schedule/scheduleList.html">旅遊行程</a></li>
+                                <li><a class="dropdown-item" href="../schedule/mySchedule.html">我的行程</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../group/groupList.html">揪團專區</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../shop/shoppingMall.html">旅遊商城</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">論壇專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../article/articleindex/ArticleIndex.html">論壇</a></li>
+                                <li><a class="dropdown-item" href="../article/posting/posting.html">發表新文章</a></li>
+                            </ul>
+                        </li>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../customer/CustomerContact.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">客服專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../customer/CustomerQa.html">Q&A專欄</a></li>
+                                <li><a class="dropdown-item" href="../customer/CustomerContact.html">聯絡我們</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../member/memberCenter.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                            </svg>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../shop/shoppingCart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                            </svg>
+
+                        </a>
+
+
+
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+    </div>
+    </div>
+
+        <div class="container">
+
+
+            <!-- -----Bread Crumb----- -->
+            <div>
+                <div class="breadcontainer mb-5">
+                    <div class="row">
+                        <nav aria-label="breadcrumb sticky" style="margin-top: 150px;">
+                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item " style="display:inline-block"><a href="../activity/ActivityIndex.html">首頁</a></li>
+                                    <li class="breadcrumb-item" style="display:inline-block"><a href="../group/groupList.html">LIBRARY</a>
+                                    </li>
+                                    <!-- <li class="breadcrumb-item active" aria-current="page" style="display:inline-block">Data</li> -->
+                                </ol>
+                            </nav>
+                        </nav>
+                    </div>
+                </div>
+
+
+                <!-- -----Content----- -->
+                <div class="container1">
+
+                    <div class="h3 my-5" style="margin-top: -100px;">參加揪團</div>
+                    <form id="orderInfo">
+                        <div class="container mt-5 shadow-none p-3 mb-5 bg-light rounded">
+
+                            <!-- ====== 聯絡資料 ====== -->
+                            <span id="datatest" value="20202020202">
+                                <span id="datatestchild" value=""></span>
+                            </span>
+                            <div class="row shadow-lg p-3 mb-5 bg-body rounded">
+                                <div class="row">
+                                    <h4>聯絡資料</h4>
+                                </div>
+
+                                <hr>
+                                <div class="col-md-6">
+                                    <label for="memberName" class="col-form-label" id="emailtext">郵件</label>
+                                    <input type="text" id="email" class="form-control"
+                                        aria-describedby="passwordHelpInline">
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="memberPhone" class="col-form-label" id="phonetext">連絡電話</label>
+                                    <input type="text" id="phone" class="form-control"
+                                        aria-describedby="passwordHelpInline">
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="counter">
+                                    <label for="memberName" class="col-form-label"
+                                        style="margin-top: 20px;">請選擇參團人數</label>
+                                    <br>
+                                    <button
+                                        style="margin: 0; padding: 0; border: 1px solid transparent; background-color: transparent; outline: none;"
+                                        id="minus" onclick="disableform();return false;">
+                                        <i>
+                                            <svg viewBox="0 0 512 512" width="35" height="35" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256C397.4 512 512 397.4 512 256S397.4 0 256 0zM352 280h-192C146.8 280 136 269.2 136 256c0-13.2 10.8-24 24-24h192C365.2 232 376 242.8 376 256C376 269.2 365.2 280 352 280z" />
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    <input type="text" disabled="disabled" readonly="readonly" class="counter-num"
+                                        style="width: 50px; margin-top: 10px; text-align: center; font-size: 20px;"
+                                        value="1" id="selectMember">
+                                    <button
+                                        style="margin: 0; padding: 0; border: 1px solid transparent; background-color: transparent; outline: none;"
+                                        id="plus" onclick="disableform();return false;">
+                                        <i>
+                                            <svg viewBox="0 0 512 512" width="35" height="35" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256C397.4 512 512 397.4 512 256S397.4 0 256 0zM352 280H280V352c0 13.2-10.8 24-23.1 24C242.8 376 232 365.2 232 352V280H160C146.8 280 136 269.2 136 256c0-13.2 10.8-24 24-24H232V160c0-13.2 10.8-24 24-24C269.2 136 280 146.8 280 160v72h72C365.2 232 376 242.8 376 256C376 269.2 365.2 280 352 280z" />
+                                            </svg>
+                                        </i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="join_members">
+                                <div class="row mt-5">
+                                    <h4 id="proAmount">參團人1</h4>
+                                    <div class="col-md-6">
+                                        <label for="name1" class="col-form-label" id="nametext1">姓名</label>
+                                        <input type="text" id="name1" class="form-control"
+                                            aria-describedby="passwordHelpInline">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="idnumber1" class="col-form-label" id="idnumbertext1">身分證字號</label>
+                                        <input type="text" id="idnumber1" class="form-control"
+                                            aria-describedby="passwordHelpInline">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="gender1" class="col-form-label" id="gendertext1">性別</label>
+                                        <select id="gender1" class="form-select">
+                                            <option selected value="1">男</option>
+                                            <option value="2">女</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="birthday1" class="col-form-label" id="birthdaytext1">出生日期</label>
+                                        <input type="date" id="birthday1" class="form-control"
+                                            aria-describedby="passwordHelpInline">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- ====== 付款方式 ====== -->
+                            <!--                <div class="row mt-5">-->
+                            <!--                    <h3>付款方式</h3>-->
+                            <!--                </div>-->
+                            <!--                <hr>-->
+
+                            <!--                <div class="row">-->
+                            <!--                    <div class="col-auto">-->
+
+                            <!--                        <div class="form-check">-->
+                            <!--                            <label for="payType" class="col-form-label">信用卡/簽帳金融卡</label>-->
+                            <!--                            <input type="text" id="payType" class="form-control" aria-describedby="passwordHelpInline">-->
+                            <!--                        </div>-->
+
+
+                            <!--                    </div>-->
+                            <!--                    <div class="col-auto">-->
+                            <!--                        <label for="cardValid" class="col-form-label">有效日期</label>-->
+                            <!--                        <input type="text" id="cardValid" class="form-control" aria-describedby="passwordHelpInline">-->
+
+                            <!--                    </div>-->
+                            <!--                    <div class="col-1">-->
+                            <!--                        <label for="scv" class="col-form-label">末三碼</label>-->
+                            <!--                        <input type="text" id="scv" class="form-control" aria-describedby="passwordHelpInline">-->
+                            <!--                    </div>-->
+
+                            <!--                    <br>-->
+                            <!--                    <br>-->
+                            <!--                    <h6> *卡號用於保留資格 </h6>-->
+                            <!--                </div>-->
+
+
+                        </div>
+                        <div class="row justify-content-end" style="margin-bottom: 60px;">
+                            <div class="col-4">
+                                <span class="h4 align-self-center px-4">
+                                    <span>總金額:</span>
+                                    <span class="my-text-lightblue" id="total">1</span>
+                                    <span>元</span>
+                                </span>
+                                <button type="button" id="order_confirmed" class="btn btn-primary btn-lg">確認參團</button>
+                            </div>
+                        </div>
+                        <!-- ===== 結束 ===== -->
+
+                </div>
+            </div>
+            </form>
+            <div id="temp">
+
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+        <!-- -----Footer----- -->
+
+            <div class="container-fluid footer1">
+
+                <div class="btn" id="chat-icon" style="position: fixed;">
+                    <img src="../dist/img/chat/live-chat.png" style="width: 50px" />
+                    <img src="../dist/img/chat/warning.png" style="width: 20px" id="alert" class="hide" />
+                </div>
+            
+                <div class="hide" id="chatBox" style="width: 410px">
+                    <div class="chat-window">
+            
+                        <div class="panel panel-default">
+            
+                            <!-- chat-title -->
+                            <div class="panel-heading top-bar d-flex">
+                                <div class="col-md-8 col-xs-8">
+            
+                                    <h5 class="panel-title">客服聊天室</h5>
+                                </div>
+                                <div class="col-md-4 col-xs-4" style="margin-top: 5px; margin-left: 90px;">
+                                    <i class="bi bi-x-lg fs-5" id="close"></i>
+                                </div>
+                            </div>
+            
+                            <!-- chat-body -->
+                            <div class="panel-body msg_container_base" id="msgContainer">
+            
+                            </div>
+            
+                            <!-- chat-input -->
+                            <div class="panel-footer">
+                                <div class="input-group" style="padding: 6px;">
+                                    <input id="btn-input" type="text" class="input-sm chat_input" placeholder="Message..."
+                                        autocomplete="off" />
+                                    <span class="input-group-btn">
+                                        <button class="btn" id="btn-chat" style="background-color: #807971"
+                                            onclick="sendMessage();">
+                                            <i class="bi bi-send-fill text-white"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+            
+                        </div>
+            
+                    </div>
+                </div>
+
+                <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my- border-top">
+                    <div class="col mb-3">
+                        <a class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32">
+                                <use xlink:href="#bootstrap" />
+                            </svg>
+                        </a>
+                        <p class="text-body-secondary">&copy; 2023</p>
+                    </div>
+
+                    <div class="col mb-3"></div>
+
+
+
+                    <div class="col mb-3 mx-5" style="font-family: 'Times New Roman', Times, serif;">
+                        <h5>U&Me</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="../activity/ActivityIndex.html"
+                                    class="nav-link p-0 text-body-secondary">活動資訊</a></li>
+                            <li class="nav-item mb-2"><a href="../schedule/scheduleList.html"
+                                    class="nav-link p-0 text-body-secondary">行程規劃</a></li>
+                            <li class="nav-item mb-2"><a href="../shop/shoppingMall.html"
+                                    class="nav-link p-0 text-body-secondary">旅遊商城</a></li>
+                            <li class="nav-item mb-2"><a href="../article/articleindex/ArticleIndex.html"
+                                    class="nav-link p-0 text-body-secondary">論壇專區</a></li>
+                            <li class="nav-item mb-2"><a href="../customer/CustomerContact.html"
+                                    class="nav-link p-0 text-body-secondary">客服專區</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="col mb-3 mx-5" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                        <h5>Follow Us</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a
+                                    class="nav-link p-0 text-body-secondary">E-mail:u-and-me@gmail.com</a></li>
+                            <li class="nav-item mb-2"><a class="nav-link p-0 text-body-secondary">Tel:02-22222222</a>
+        
+                        </ul>
+                        </li>
+        
+                    </div>
+                </footer>
+            </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./dist/js/regForm.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../customer/dist/js/customerChat.js"></script>
+</body>
+
+</html>

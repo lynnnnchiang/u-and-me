@@ -1,0 +1,208 @@
+.container {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 80vw;
+  background-color: rgb(237, 236, 236);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 40px;
+  border-radius: 15px;
+  /* 上右下左 */
+
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  /* 圖片按照比例百分百放大至填滿container */
+}
+
+body {
+  background-color: #47535a;
+}
+
+.b {
+  width: 80vw;
+  min-height: 60vh;
+  /* display: flex; */
+  justify-content: center;
+  background-color: #f1f0ea;
+  align-items: center;
+
+}
+
+.banner {
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  background-color: #585021;
+  align-items: center;
+
+}
+
+.target {
+  position: sticky;
+  top: 88vh;
+  /* 初始位置距離上方200px */
+  width: 80vw;
+  height: 80px;
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
+  vertical-align: bottom;
+  background-color: #f9f9f4;
+  border-top: 2px solid #f2ebeb;
+}
+
+.btn-primary-send {
+  background-color: #E59560;
+  border-color: #E59560;
+}
+
+.btn-primary {
+  background-color: rgb(204, 220, 209, 0.5);
+  border-color: #e6f3ea;
+  color: rgb(163, 160, 160);
+}
+
+.btn-primary:hover {
+  background-color: #abc1b3;
+  border-color: #abc1b3;
+}
+
+.btn-primary.active {
+
+  background-color: #7c9a87;
+  border-color: #95ad9e;
+}
+
+.article_comment_card {
+  margin: 0px 10px 0px 80px;
+  width: 66vw;
+  height: 10vw;
+  display: block;
+  padding-top: 10px;
+  border-bottom: #95ad9e solid 1px;
+
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #1D3124;
+  font-weight: 900;
+}
+
+.nav {
+  --bs-nav-link-color: #a4a09c;
+}
+
+.memId {
+
+  margin-top: 10px;
+}
+
+.articleTime {
+  margin-top: 5px;
+  font-size: 2px;
+  color: gray;
+}
+
+.articleContent {
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+.articleLike {
+  margin: 50px 20px 10px 5px;
+  display: inline-block;
+}
+
+.commentNum {
+  margin-left: 5px;
+  margin-right: 20px;
+  display: inline-block;
+
+}
+
+.picframe {
+  flex-wrap: wrap;
+  margin: 20px;
+  position: relative;
+  width: 700px;
+  height: 300px;
+}
+
+.picframe>img {
+  display: block;
+  object-fit: cover;
+  /* 圖片按照比例百分百放大至填滿container */
+  position: relative;
+  overflow: hidden;
+}
+
+#myTextarea {
+  background-color: #f9f9f4;
+  width: 70vw;
+  margin-left: 20px;
+  border: none;
+}
+
+#myTextarea:focus {
+  color: black;
+  /* 聚焦時，文字變為黑色 */
+}
+
+.comment-box {
+  border: none;
+  /* 移除外邊框 */
+  resize: none;
+  /* 禁止改變尺寸 */
+  transition: color 0.3s;
+  /* 定義文字顏色變化的過渡效果 */
+  height: 80px;
+}
+
+.comment-box:focus {
+  color: black;
+  /* 聚焦時，文字變為黑色 */
+}
+
+.articlecard {
+  margin: 20px 20px 20px 20px;
+  width: 60vw;
+  /* height: 10vw; */
+  display: inline-block;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  
+}
+.articlecardframe{
+  border-bottom: 1px solid rgb(193, 193, 193);
+  margin-left: 110px;
+  margin-right: 110px;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0; /* 如果需要去除内边距的话 */
+  cursor: pointer; /* 鼠标悬停时显示手型光标 */
+}
+
+a{
+  color: black;
+}

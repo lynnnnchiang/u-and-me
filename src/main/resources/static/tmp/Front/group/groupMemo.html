@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>U & ME | 揪團 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./dist/css/groupMemo.css">
+    <!-- 傳送圖片icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous" />
+    <!-- 客服聊天室 -->
+    <link rel="stylesheet" href="../customer/dist/css/customerChat.css">
+    <link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon">
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="Header">
+        <nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../activity/ActivityIndex.html">
+                    <img src="../dist/img/uandmelogo-removebg-preview.png">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../activity/ActivityIndex.html" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">活動資訊</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../activity/ActivityNewsList.html">News</a></li>
+                                <li><a class="dropdown-item" href="../activity/ActivityPeriodList.html">期間限定</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../attraction/attractionList.html">旅遊景點</a>
+                        </li>
+                        <li class="nav-item dropdown me-2">
+                            <a class="nav-link dropdown-toggle" href="../schedule/scheduleList.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">行程規劃</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../schedule/scheduleList.html">旅遊行程</a></li>
+                                <li><a class="dropdown-item" href="../schedule/mySchedule.html">我的行程</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../group/groupList.html">揪團專區</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="../shop/shoppingMall.html">旅遊商城</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">論壇專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../article/articleindex/ArticleIndex.html">論壇</a></li>
+                                <li><a class="dropdown-item" href="../article/posting/posting.html">發表新文章</a></li>
+                            </ul>
+                        </li>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="../customer/CustomerContact.html" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">客服專區</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../customer/CustomerQa.html">Q&A專欄</a></li>
+                                <li><a class="dropdown-item" href="../customer/CustomerContact.html">聯絡我們</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../member/memberCenter.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                            </svg>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../shop/shoppingCart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                            </svg>
+
+                        </a>
+
+
+
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+    </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <main>
+        <section class="text-center container-fluid"
+            style="padding-top:40px; background-color: #F6F4E8; position: relative; width: 100vw;">
+            <div class="row">
+
+
+            </div>
+        </section>
+
+        <!-- -----Bread Crumb----- -->
+        <div>
+            <div class="breadcontainer" style="margin-left: 70px; margin-top: 50px;">
+                <div class="row">
+                    <nav aria-label="breadcrumb sticky">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item " style="display:inline-block"><a
+                                        href="../activity/ActivityIndex.html">首頁</a></li>
+                                <li class="breadcrumb-item active" aria-current="page" style="display:inline-block">揪團
+                                </li>
+                            </ol>
+                        </nav>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+        <div class="container" style="background-color: #dedada; height:400px; padding:30px;">
+            <div class="row">
+                <div id="carouselExampleIndicators" class="carousel slide col-8" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button> -->
+
+                    </div>
+                    <div class="carousel-inner" style="height:350px;">
+                        <div class="carousel-item active">
+                            <img src="../dist/img/groupjavaphotowrite/107.jpg" class="d-block w-100" alt=""
+                                id="cover_img">
+                        </div>
+                        <!-- <div class="carousel-item">
+                            <img src="../dist/img/groupjavaphotowrite/108.jpg" class="d-block w-100" alt="" id="img1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../dist/img/groupjavaphotowrite/102.jpg" class="d-block w-100" alt="" id="img2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../dist/img/groupjavaphotowrite/105.jpg" class="d-block w-100" alt="" id="img3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../dist/img/groupjavaphotowrite/103.jpg" class="d-block w-100" alt="" id="img4">
+                        </div> -->
+                    </div>
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button> -->
+
+                </div>
+
+                <div class="col-4" style="background-color: #f2f2f2; height: 280px; overflow: auto;">
+                    <div class="row">
+                        <div class="col">
+                            <h5 id="mem_name">提案人</h5>
+                            <h3 id="theme">揪團標題</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col" style="background-color: #f2f2f2; padding: 10px;">
+                            <p style="color: rgb(90, 53, 26); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;"
+                                id="members">
+                                目前人數: xxx</p>
+                            <p style="color: rgb(90, 53, 26); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;"
+                                id="depDate">
+                                行程出發時間: xxx</p>
+                            <p style="color: rgb(163, 44, 44); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px;"
+                                id="amount">
+                                價格: xxx</p>
+                            <p style="color: rgb(163, 44, 44); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px;"
+                                id="days">
+                                剩餘天數: xxx</p>
+                            <p style="color: rgb(90, 53, 26); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;"
+                                id="minMember">
+                                成團人數: xxx</p>
+                            <p style="color: rgb(90, 53, 26); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;"
+                                id="maxMember">
+                                人數上限: xxx</p>
+                            <p style="color: rgb(90, 53, 26); font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif;"
+                                id="groupSta">
+                                目前揪團狀態: xxx</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>揪團簡介:</h5>
+                        <div class="col" id="groupDesc">
+                            <p>揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介揪團簡介</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="d-flex justify-content-end"
+                    style="position: absolute; bottom: 0; right: 0; margin-bottom: 100px; margin-right: 120px;">
+                    <div class="groupbutton">
+                        <button class="btn text-white" type="button" id="join_btn" onclick=jump()>參與揪團</button>
+                    </div>
+                    <div class="goSche">
+                        <button class="btn text-white" type="button" id="join_btn" onclick=jumpSch()>前往行程</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div style="height: 60px;"></div>
+        <div style="height: 60px; background-color: #aeacac;">
+            <!-- 依類別標籤查詢 -->
+            <div id="tab">
+                <ul>
+                    <!-- 如何加底線? -->
+                    <li><a href="#" class="active" id="tab1" onclick="changeTab1()">活動介紹</a></li>
+                    <li><a href="#" id="tab2" onclick="changeTab2()">取消政策</a></li>
+                    <li><a href="#" id="tab3" onclick="changeTab3()">購買須知</a></li>
+                </ul>
+
+
+                <!-- 頁籤的內容區塊 -->
+                <div class="tab1-act" style="background-color: white; padding: 10px;">
+                    <p>主頁面內容</p>
+                </div>
+                <!-- <div class="tab2-cancel" style="background-color: white; padding: 10px;">
+                    <p>頁面1顯示的内容</p>
+                </div>
+                <div class="tab3-memo" style="background-color: white; padding: 10px;">
+                    <p>頁面2顯示的内容</p> -->
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color: #dedada; padding: 40px;">
+            <div class="content-wrapper" style="background-color: #f2f2f2; height: 400px; overflow: auto;">
+                <div class="content-inner" style="margin: 0; padding: 0;">
+                    <pre id="notice">隨著科技的不斷進步和創新，我們正站在一個嶄新的時代門檻前，
+                    迎接著前所未有的未來。科技的腳步不僅在改變我們的日常生活，更在塑造著整個社會和文明
+                    的演進。讓我們一同探索，科技將如何引領我們進入未來的世界。
+ 人工智能是當今科技領域的一個重要突破。機器學習和深度學習的發展，使得電腦可以
+ 模仿人類的思考方式，進行自主學習和決策。在醫療、交通、金融等各個領域，人工智能正發揮著越來越關鍵的作
+ 用，提高效率、降低成本，甚至在一些情況下超越人類的能力。
+
+區塊鏈技術則在數字化時代引起了轟動。這種去中心化的數據儲存和交易方式，不僅確保了
+數據的安全性和透明性，還使得跨界交易更加便捷。從加密貨幣到供應鏈管理，區塊鏈正在重塑著我們對於信任和數據分享的看法。
+
+生物科技的突破也讓我們對於醫學和生命科學充滿了希望。基因編輯技術
+
+
+
+
+CRISPR-Cas9的出現，讓科學家有能力修改生物基因，從而治療一些遺傳性疾病。然而，這也引發
+了倫理和道德的辯證，我們需要平衡科技發展和人類價值觀之間的關係。
+
+
+隨著自動駕駛技術的成熟，交通運輸也將經歷巨大變革。無人駕駛車輛的出現，將減少交通事故，
+提高能源利用效率，並改變城市規劃。然而，這同樣也帶來了法律、安全等一系列問題，需要我們進一步思考和解決。
+
+總的來說，科技正成為我們前進的動力，引領著我們進入一個更加智慧、便捷和可持續的未來。然
+而，我們也不能忽視其中可能產生的挑戰和風險。唯有保持警醒和開放的思維，我們才能確保科技
+為人類帶來更多的福祉，而非衝擊我們的價值觀和生活方式。讓我們勇敢面對未知，共同創建一個充滿希望的未來世界。
+                </pre>
+                </div>
+            </div>
+
+        </div>
+        <!-- -----Footer----- -->
+
+        <div class="container-fluid footer1">
+
+            <div class="btn" id="chat-icon" style="position: fixed;">
+                <img src="../dist/img/chat/live-chat.png" style="width: 50px" />
+                <img src="../dist/img/chat/warning.png" style="width: 20px" id="alert" class="hide" />
+            </div>
+        
+            <div class="hide" id="chatBox" style="width: 410px">
+                <div class="chat-window">
+        
+                    <div class="panel panel-default">
+        
+                        <!-- chat-title -->
+                        <div class="panel-heading top-bar d-flex">
+                            <div class="col-md-8 col-xs-8">
+        
+                                <h5 class="panel-title">客服聊天室</h5>
+                            </div>
+                            <div class="col-md-4 col-xs-4" style="margin-top: 5px; margin-left: 90px;">
+                                <i class="bi bi-x-lg fs-5" id="close"></i>
+                            </div>
+                        </div>
+        
+                        <!-- chat-body -->
+                        <div class="panel-body msg_container_base" id="msgContainer">
+        
+                        </div>
+        
+                        <!-- chat-input -->
+                        <div class="panel-footer">
+                            <div class="input-group" style="padding: 6px;">
+                                <input id="btn-input" type="text" class="input-sm chat_input" placeholder="Message..."
+                                    autocomplete="off" />
+                                <span class="input-group-btn">
+                                    <button class="btn" id="btn-chat" style="background-color: #807971"
+                                        onclick="sendMessage();">
+                                        <i class="bi bi-send-fill text-white"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                </div>
+            </div>
+
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my- border-top">
+                <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32">
+                            <use xlink:href="#bootstrap" />
+                        </svg>
+                    </a>
+                    <p class="text-body-secondary"
+                        style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">&copy; 2023</p>
+                </div>
+
+                <div class="col mb-3">
+
+                </div>
+
+
+
+                div class="col mb-3 mx-5" style="font-family: 'Times New Roman', Times, serif;">
+                <h5>U&Me</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="../activity/ActivityIndex.html" class="nav-link p-0 text-body-secondary">活動資訊</a></li>
+                    <li class="nav-item mb-2"><a href="../schedule/scheduleList.html" class="nav-link p-0 text-body-secondary">行程規劃</a></li>
+                    <li class="nav-item mb-2"><a href="../shop/shoppingMall.html" class="nav-link p-0 text-body-secondary">旅遊商城</a></li>
+                    <li class="nav-item mb-2"><a href="../article/articleindex/ArticleIndex.html" class="nav-link p-0 text-body-secondary">論壇專區</a></li>
+                    <li class="nav-item mb-2"><a href="../customer/CustomerContact.html" class="nav-link p-0 text-body-secondary">客服專區</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-3 mx-5" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                <h5>Follow Us</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#"
+                            class="nav-link p-0 text-body-secondary">E-mail:u-and-me@gmail.com</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tel:02-22222222</a>
+
+                </ul>
+                </li>
+
+            </div>
+        </footer>
+        </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./dist/js/groupMemo.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../customer/dist/js/customerChat.js"></script>
+</body>
+
+</html>

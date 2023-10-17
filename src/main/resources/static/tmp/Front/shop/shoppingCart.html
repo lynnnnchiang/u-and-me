@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UandMe Online Shopping</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="./dist/css/shoppingCart.css">
+  <!-- 警示窗 -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body>
+  <div class="Header">
+      <nav class="navbar navbar-expand-lg  bg-dark navbar-dark fixed-top">
+
+          <div class="container-fluid">
+              <a class="navbar-brand" href="../activity/ActivityIndex.html">
+                  <img src="../dist/img/uandmelogo-removebg-preview.png">
+
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="../activity/ActivityIndex.html" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">活動資訊</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../activity/ActivityNewsList.html">News</a></li>
+                              <li><a class="dropdown-item" href="../activity/ActivityPeriodList.html">期間限定</a></li>
+                          </ul>
+                      </li>
+                      </li>
+                      <li class="nav-item me-2">
+                        <a class="nav-link" href="../attraction/attractionList.html">旅遊景點</a>
+                    </li>
+                      <li class="nav-item dropdown me-2">
+                          <a class="nav-link dropdown-toggle" href="../schedule/scheduleList.html" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">行程規劃</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../schedule/scheduleList.html">旅遊行程</a></li>
+                              <li><a class="dropdown-item" href="../schedule/mySchedule.html">我的行程</a></li>
+                          </ul>
+                      </li>
+                      </li>
+                      <li class="nav-item me-2">
+                          <a class="nav-link" href="../group/groupList.html">揪團專區</a>
+                      </li>
+                      <li class="nav-item me-2">
+                          <a class="nav-link" href="../shop/shoppingMall.html">旅遊商城</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">論壇專區</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../article/articleindex/ArticleIndex.html">論壇</a></li>
+                              <li><a class="dropdown-item" href="../article/posting/posting.html">發表新文章</a></li>
+                          </ul>
+                      </li>
+                      </li>
+
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="../customer/CustomerContact.html" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">客服專區</a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../customer/CustomerQa.html">Q&A專欄</a></li>
+                              <li><a class="dropdown-item" href="../customer/CustomerContact.html">聯絡我們</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                  <li class="nav-item">
+                  </li>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="../member/memberCenter.html">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-person" viewBox="0 0 16 16">
+                              <path
+                                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                          </svg>
+                      </a>
+
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="../shop/shoppingCart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                              width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                              <path
+                                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                          </svg>
+
+                      </a>
+
+
+
+                  </li>
+
+
+              </ul>
+
+
+          </div>
+
+
+      </nav>
+  </div>
+  </div>
+
+  <section class="text-center container-fluid"
+    style="padding-top: 80px; background-color: #F6F4E8; position: relative; width: 100vw;">
+    <div class="row">
+
+    </div>
+  </section>
+
+
+  <!-- -----Bread Crumb----- -->
+  <div> <!--  包到content結束-->
+    <div class="breadcontainer" style="margin-left: 70px; margin-top: 30px;">
+      <div class="row">
+        <nav aria-label="breadcrumb sticky">
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item " style="display:inline-block"><a href="../activity/ActivityIndex.html">首頁</a></li>
+              <li class="breadcrumb-item" style="display:inline-block"><a href="shoppingMall.html">旅遊商城</a></li>
+              <li class="breadcrumb-item active" aria-current="page" style="display:inline-block">購物車
+              </li>
+            </ol>
+          </nav>
+        </nav>
+      </div>
+    </div>
+
+    <!-- -----Content----- -->
+    <div class="container" ><!-- contentContainer -->
+      <div class="h3 my-5" style="margin-top: -100px;">購物車</div>
+
+      <section class="h-100 h-custom">
+       <div class="container py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+
+              <div class="table-responsive" style="margin-top: -50px;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="ps-2 inf" style="width: 170px">商品資訊</th>
+                      <th scope="col" class="ps-2 inf" style="width: 300px"></th>
+                      <th scope="col" class="ps-2 pri" style="width: 170px">單價</th>
+                      <th scope="col" class="ps-2 num" style="width: 160px">數量</th>
+                      <th scope="col" class="ps-2 cou" style="width: 80px">小計</th>
+                    </tr>
+                  </thead>
+                  </table>
+                  <table>
+                  <tbody>
+                    <tr>
+                      <th scope="row" id="cartListContainer">
+                        <!-- <div class="d-flex align-items-center">
+                          <img src="http://picsum.photos/400/300?random=10" class="img-fluid rounded-3"
+                            style="width: 150px;" alt="Book">
+                          <div class="flex-column ms-4">
+                            <p class="mb-2 pName">商品名稱</p>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="align-middle">
+                        <p class="mb-0" style="font-weight: 500;">商品單價</p>
+                      </td>
+                      <td class="align-middle">
+                        <div class="d-flex flex-row">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                          <input id="changeQuantity" min="0" name="quantity" value="2" type="number"
+                            class="form-control form-control-sm" style="width: 50px;" />
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="align-middle">
+                        <p class="mb-0" style="font-weight: 500;">$9.99</p>
+                      </td>
+                    </tr> -->
+
+      <!-- 下面間隔線1 -->
+      <!-- <tr>
+                      <th scope="row"></th>
+                      <td class="align-middle"></td>
+                      <td class="align-middle"></td>
+                      <td class="align-middle"></td>
+                    </tr> -->
+
+      <!-- 點數折扣 -->
+      <tr>
+                      <th scope="row" class="border-bottom-0" style="display: none;">
+                        <div class="d-flex align-items-center">
+                          <div class="flex-column ms-4">
+                            <p class="mb-2" style="display: none;">點數累積: 1點</p>
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                              <label class="form-check-label" for="flexCheckChecked" style="display: none;">
+                                使用點數(1點折抵1元)
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="align-middle border-bottom-0" style="display: none;">
+                        <p class="mb-0"></p>
+                      </td>
+
+                      <td class="align-middle border-bottom-0" style="display: none;">
+                        <p class="mb-0"></p>
+                      </td>
+
+      <!-- 計算區 -->
+      <div class="container">
+                        <div class="row ">
+                          <div class="col">
+                    <tr>
+                      <!-- <td class="align-middle border-bottom-0">
+                      </td> -->
+                      <!-- <td class="align-middle border-bottom-0">
+                      </td> -->
+                      <td class="align-middle border-bottom-0" style="padding-top:50px">
+                        <span style="margin-left:935px;"> 總計:</span>
+                        <span class="mb-0" id="totalPriceCount" style="font-weight: 500; font-size: 18px;margin-left:20px;width: 100px;"></span>
+                        <span style="margin-left:20px">元</span>
+                    </td>
+                    </tr>
+                    <tr>
+                      <!-- <td class="align-middle border-bottom-0">
+                      </td> -->
+                      <!-- <td class="align-middle border-bottom-0">
+                      </td> -->
+                      <td class="align-middle border-bottom-0">
+                        <p class="mb-0" style="font-weight: 500; display: none;">折抵</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <!-- <td class="align-middle border-bottom-0">
+                      </td>
+                      <td class="align-middle border-bottom-0">
+                      </td> -->
+                      <td class="align-middle border-bottom-0">
+                        <span style="margin-left:935px;"> 運費:</span>
+                        <span class="mb-0" id="shippingFee" style="font-weight: 500; font-size: 18px; margin-left:20px;width: 100px;">80</span>
+                        <span style="margin-left:20px">元</span>
+      </td>
+                    </tr>
+              </div>
+            </div> 
+            </div> <!-- 計算區結束 -->
+          </tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <!-- 總金額區 -->
+      <div class="container ">
+        <div class="row mb-5">
+          <div class="cart-step1-footer" style="display: flex; justify-content: flex-end;">
+            <div class="h4 align-self-center px-4">
+              <span >總金額:</span>
+              <span class="my-text-lightblue" id="finalTotalPrice">0</span>
+              <span>元</span>
+            </div>
+            <div class="cart-continue-wrapper">
+              <button id="confirmCartList" onclick="window.location.href = 'shoppingCart_checkout.html'" type="button" name="submit.x"
+                class="btn btn-secondary btn-lg">確認訂單內容</button>
+            </div>
+            <div class="cart-notice" id="cart_promotion_block"></div>
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!-- contentContainer結尾 -->
+  </div> <!-- bread div結尾 -->
+
+
+
+
+  <!-- -----Footer----- -->
+
+  <div class=" footer">
+    <div class="container-fluid footer1">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my- border-top">
+        <div class="col mb-3">
+          <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+              <use xlink:href="#bootstrap" />
+            </svg>
+          </a>
+          <p class="text-body-secondary">&copy; 2023</p>
+        </div>
+        <div class="col mb-3">
+        </div>
+
+        <div class="col mb-3 mx-5" style="font-family: 'Times New Roman', Times, serif;">
+          <h5>U&Me</h5>
+          <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="../activity/ActivityIndex.html"
+                      class="nav-link p-0 text-body-secondary">活動資訊</a></li>
+              <li class="nav-item mb-2"><a href="../schedule/scheduleList.html"
+                      class="nav-link p-0 text-body-secondary">行程規劃</a></li>
+              <li class="nav-item mb-2"><a href="../shop/shoppingMall.html"
+                      class="nav-link p-0 text-body-secondary">旅遊商城</a></li>
+              <li class="nav-item mb-2"><a href="../article/articleindex/ArticleIndex.html"
+                      class="nav-link p-0 text-body-secondary">論壇專區</a></li>
+              <li class="nav-item mb-2"><a href="../customer/CustomerContact.html"
+                      class="nav-link p-0 text-body-secondary">客服專區</a></li>
+          </ul>
+      </div>
+
+      <div class="col mb-3 mx-5" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+          <h5>Follow Us</h5>
+          <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a
+                      class="nav-link p-0 text-body-secondary">E-mail:u-and-me@gmail.com</a></li>
+              <li class="nav-item mb-2"><a class="nav-link p-0 text-body-secondary">Tel:02-22222222</a>
+
+          </ul>
+          </li>
+
+      </div>
+  </footer>
+    </div>
+  </div>
+  
+  <script>
+    const baseUrl = window.location.protocol + "//" + window.location.host + "/u-and-me/";
+    const cartListContainer = document.getElementById('cartListContainer');
+    const totalPriceCount = document.getElementById('totalPriceCount');
+    const finalTotalPrice = document.getElementById('finalTotalPrice');
+    const shippingFee_el = document.getElementById('shippingFee');
+    //載入後顯示購物車清單
+    document.addEventListener("DOMContentLoaded", function () {
+    fetch(`${baseUrl}member/match`,{
+      method:'GET'
+    }).then(response =>{
+      if (response.status == 401) {
+            Swal.fire({
+                icon: 'error',
+                title: '尚未登入',
+                showCancelButton: true
+            }).then(() => {
+                this.location.href = baseUrl + '/tmp/Front/member/memberLogin.html';
+            })
+        }
+    })
+
+      fetchCartList();
+
+    })
+    //查看整個購物車清單
+    async function fetchCartList() {
+      cartListContainer.innerHTML = "";
+      const response = await fetch(`${baseUrl}showAllCartList`);
+      const cartLists = await response.json();
+       fetchProductDetails(cartLists);
+
+    }
+    //拿到全部的商品資訊
+    function fetchProductDetails(cartLists){
+      shippingFee_el.innerText = 0;
+
+      //總計
+      let toTalCount = 0; 
+      for(let cartList of cartLists){
+        fetch(`${baseUrl}product/listProductDetail/${cartList.cartListId.prodId}`)
+        .then(resp=> resp.json())
+        .then(data=>{
+          shippingFee_el.innerText = 80;
+          // if(data != null || data!= undefined){
+          //   shippingFee_el.innerText = 80;
+          // }
+
+        const prodRow = document.createElement("tr");
+        prodRow.style.borderBottom = "1px solid rgb(196, 204, 203)";
+      
+
+          // 創建每個表格
+          let prodInfo_el = document.createElement("td");
+          prodInfo_el.innerHTML = `
+            <div class="d-flex align-items-center" style="width: 170px;height: 150px;margin-top:5px;margin-bottom:5px">
+              <img src="data:Image/jpeg;base64,${data.prodPic}" class="img-fluid rounded-3 prodImg" alt="商品照片" style="width: 200px;height: 150px;">
+            </div>
+            `;
+            let prodName_el = document.createElement("td");
+            prodName_el.innerHTML =`
+            <span class="align-middle" style="background-color: red;">
+                <p class="mb-2 pName" style="width: 375px; height: 30px;margin-left:20px">${data.prodName}</p>
+            </span>
+          </th>
+          `;
+          
+          const prodPri_el = document.createElement("td");
+          prodPri_el.classList.add("align-middle");
+          // prodPri_el.style.paddingLeft = "10px";
+          prodPri_el.innerHTML = 
+          `<p class="mb-0 ps-3" id="prodPri${cartList.cartListId.prodId}" style="font-weight: 500; width: 195px;">${data.prodPri}</p>`;
+
+          const quantity_el = document.createElement("td");
+          quantity_el.classList.add("align-middle");
+          quantity_el.innerHTML = `
+
+          <!-- 數量加減按鈕 -->
+          <div class="product_variant_quantity" style="padding-bottom: 10px; width: 200px;margin-left:-2px">
+          <span class="product_quantity">
+              <div class="btn-group" role="group" aria-label="First group">
+                  <button class="btn add-down qk-bd--product_border" type="button" onclick="reduceCart(${cartList.cartListId.prodId})"
+                      id="reduceBtn${cartList.cartListId.prodId}" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(166, 173, 172); width: 30px;">-</button>
+                  <input class="btn item-quantity qk-text--heading qk-bd--product_border" type="text"
+                       id="quantityInput${cartList.cartListId.prodId}" name="quantityIn" value="${cartList.cartQty}" oninput="updateCart(${cartList.cartListId.prodId})" data-prod-id="${cartList.cartListId.prodId}" data-old-value="1" style="color:rgb(72, 74, 74); border: 1px solid rgb(166, 173, 172);width: 50px;">
+                  <button class="btn add-up qk-bd--product_border" type="button" onclick="addCarts(${cartList.cartListId.prodId})"
+                      id="addBtn${cartList.cartListId.prodId}" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(166, 173, 172); width: 30px;">+</button>
+              </div>
+            </span>
+        </div>                         
+          `;
+
+          const cartPri_el = document.createElement("td");
+          cartPri_el.classList.add("align-middle");
+          cartPri_el.innerHTML =
+           `<p class="mb-0 ps-2 cartPrice" id="cartPrice${cartList.cartListId.prodId}" style="font-weight: 500; width: 80px; margin-left:8px">NT ${cartList.cartPri}</p>`;
+
+
+          // 將每一列加入
+          prodRow.appendChild(prodInfo_el);
+          prodRow.appendChild(prodName_el);
+          prodRow.appendChild(prodPri_el);
+          prodRow.appendChild(quantity_el);
+          prodRow.appendChild(cartPri_el);
+          // 將列加到此id的位置
+          cartListContainer.appendChild(prodRow);
+          
+          //總計的計算
+          toTalCount += cartList.cartPri;
+          totalPriceCount.innerText = toTalCount;
+          finalTotalPrice.innerText = toTalCount+80;
+        })
+          };
+
+      }
+          
+           //  -----商品數量增減-----
+        const reduceButton = document.getElementById("reduceBtn");
+   
+        //數量減少
+       async function reduceCart(prodId) {
+            let quantityInput = document.getElementById("quantityInput"+prodId);
+            let currentValue = parseInt(quantityInput.value); 
+            // console.log("quantityInput: "+quantityInput.value);
+            // console.log("currentValue: "+currentValue);
+            // let currentValue = quantityInput.value;
+            if (currentValue > 0) {
+                currentValue -= 1;
+                // //更新輸入的值
+                quantityInput.value = currentValue;
+                updateCart(prodId);
+            }
+            //數量為0，刪除此明細
+            if (currentValue === 0){
+              quantityInput.value = currentValue;
+              await deleteCart(prodId);
+            } 
+        }
+      
+
+        //數量增加
+            function addCarts(prodId,event) {
+            let quantityInput = document.getElementById("quantityInput"+prodId);
+            quantityInput.value++;
+            updateCart(prodId);
+        }
+
+        
+        // 數量增加或減少，更新購物車明細 
+          function updateCart(prodId){
+            // console.log(prodId);
+            //取得每一列input標籤的值(input標籤在innerHTML有+prodId 讓每一列的input標籤都有唯一的id)
+            let quantityInput = document.getElementById("quantityInput"+prodId);
+            // console.log(quantityInput);
+            // console.log(quantityInput.value);
+           
+            let ProdId = quantityInput.dataset.prodId;
+            let quantityFinal = quantityInput.value;
+            
+            const cartList ={
+                cartPri:document.querySelector(".cartPrice").value,
+                cartQty:quantityFinal
+            }
+
+            //根據數量變化計算新的小計
+            let ProdPriValue = document.getElementById("prodPri" + prodId).textContent;
+            let newCartPri = calculateNewCartPrice(parseFloat(ProdPriValue), parseFloat(quantityFinal));
+            //取得每一列cartPri的值(在innerHTML有+prodId 讓每一列生成的cartPri都有唯一的id)
+            let newCartPri_el = document.getElementById("cartPrice"+prodId);
+            //把計算好的新金額用.textContent放回去
+            newCartPri_el.textContent = `NT ${newCartPri}`;
+            
+            //根據小計變化計算新的總計
+            let toTalCountFinal = 0;
+            //遍歷所有以 "cartPrice" 開頭的元素
+            let newCartPri_els = document.querySelectorAll("[id^='cartPrice']");
+            newCartPri_els.forEach(newCartPri_el=>{
+              let str = newCartPri_el.textContent;
+              //把非數字的內容刪除(NT)只保留數字
+              let price = str.replace(/\D/g, "");
+              let newCartPri_el_value = parseInt(price);
+              toTalCountFinal += newCartPri_el_value;
+            });
+
+            let test = document.getElementById("cartPrice"+prodId);
+            
+            // console.log(toTalCountFinal);
+            // console.log(test);
+            totalPriceCount.innerText = `${toTalCountFinal}`;
+            finalTotalPrice.innerText = `${toTalCountFinal + 80}`;
+
+          fetch(`${baseUrl}updateCartList/${ProdId}/${quantityFinal}/${newCartPri}`,{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(cartList)
+            }).then(resp => resp.json())
+              .then(data =>{
+                saveTotal(toTalCountFinal);
+              })
+             
+        }
+        //計算新的小計
+        function calculateNewCartPrice(ProdPri,quantityFinal){
+              return ProdPri * quantityFinal;
+        }
+
+        //將總計存在httpSession
+          function saveTotal(total) {
+          fetch(`${baseUrl}saveTotal/${total}`, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({ total: total })
+          })
+          .then(resp => resp.json())
+          .then(data => {
+            if(data == 0){
+              console.log('Total saved:', data);
+              shippingFee_el.innerText = 0;
+              finalTotalPrice.innerText = 0;
+            }
+          })
+          .catch(error => {
+              console.error('Error saving total:', error);
+          });
+           }
+
+
+
+
+        //刪除購物車明細
+        function deleteCart(prodId){
+         fetch(`${baseUrl}deleteCartList/${prodId}`, {
+              method: 'DELETE',
+              headers: { 'Content-Type': 'application/json' },
+            })
+              .then(body => {
+                 //成功刪除，重整此畫面
+                 location.reload();
+              
+              })
+            }
+   
+
+
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

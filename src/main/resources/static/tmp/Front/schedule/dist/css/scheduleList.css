@@ -1,0 +1,260 @@
+.navbar-brand {
+  height: 70px;
+}
+
+.navbar-brand>img {
+  height: 115px;
+  margin-top: -23px;
+}
+
+.navbar-dark,
+.navbar[data-bs-theme=dark] {
+  --bs-navbar-color: rgb(59, 58, 58);
+  --bs-navbar-hover-color: rgb(158, 158, 158);
+  --bs-navbar-disabled-color: rgba(80, 193, 190, 0.829);
+  --bs-navbar-active-color: #fff;
+  --bs-navbar-brand-color: #000000;
+  --bs-navbar-brand-hover-color: #fff;
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-dark-rgb: 245, 245, 245;
+}
+
+.nav-tabs .dropdown-menu {
+  margin-top: calc(-1 * var(--bs-nav-tabs-border-width));
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.footer1 {
+  background-color: rgb(81, 113, 111);
+  color: #bdbdbd;
+}
+
+.col-6 col-md-2 mb-3>.nav-item mb-2 {
+  color: #fff;
+}
+
+.breadcrumb .breadcrumb-item a {
+  text-decoration: none;
+  /* 移除底线 */
+  color: rgb(81, 113, 111);
+  /* 设置链接颜色 */
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.footer {
+  font-family: serif;
+  /* 更改字体为 serif */
+  color: #bdbdbd;
+}
+
+.list-group-shop {
+  --bs-list-group-color: var(--bs-body-color);
+  --bs-list-group-bg: var(--bs-body-bg);
+  --bs-list-group-border-color: var(--bs-border-color);
+  --bs-list-group-border-width: var(--bs-border-width);
+  --bs-list-group-border-radius: var(--bs-border-radius);
+  --bs-list-group-item-padding-x: 1rem;
+  --bs-list-group-item-padding-y: 0.5rem;
+  --bs-list-group-action-color: var(--bs-secondary-color);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: rgb(204, 217, 226);
+  --bs-list-group-action-active-color: var(--bs-body-color);
+  --bs-list-group-action-active-bg: var(--bs-secondary-bg);
+  --bs-list-group-disabled-color: var(--bs-secondary-color);
+  --bs-list-group-disabled-bg: var(--bs-body-bg);
+  --bs-list-group-active-color: #fff;
+  --bs-list-group-active-bg: rgb(40, 81, 133);
+  --bs-list-group-active-border-color: rgb(40, 81, 133);
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: var(--bs-list-group-border-radius);
+}
+
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+  .h-custom-2 {
+    height: 100%;
+  }
+}
+
+/* 頁首圖片 */
+h1.scheduleListTitle {
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 5px 5px 3px black;
+}
+
+div.scheduleListMainImg {
+  z-index: 0;
+  padding: 0;
+  height: 81%;
+  position: absolute;
+  top: 86px;
+  left: 0;
+  overflow: hidden;
+}
+
+div.scheduleListMainImg>img {
+  width: 100%;
+  height: auto;
+  height: auto;
+}
+
+/* 搜尋欄、篩選條件相關 */
+.filter-search {
+  display: inline-block;
+  padding: 15px 70px;
+  /* border: 1px solid red; */
+  align-items: center;
+  width: 100vw;
+  height: 70px;
+}
+
+/* 類別標籤 */
+div.filter-tags {
+  /* border: 1px solid red; */
+  margin-left: 20px;
+}
+
+select#tagInSchedule {
+  width: auto;
+}
+
+select#tagInSchedule:focus {
+  border: 1px solid lightgrey;
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-success-rgb), 0.25);
+}
+
+
+/* 搜尋欄 */
+#keywords {
+  width: 200px;
+  align-items: center;
+  border: 1px solid rgb(158, 158, 158);
+  position: absolute;
+  right: 30%;
+
+}
+
+#search-btn {
+  position: absolute;
+  right: 25%;
+}
+
+/* 排序 */
+.filter-sorted {
+  position: absolute;
+  right: 10.9%;
+}
+
+/* 游標經過行程卡片CSS */
+div.card:hover {
+  box-shadow: 3px 3px 10px black;
+}
+
+/* 複製行程區塊 */
+div.copySch {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* 複製行程icon */
+div.copySch>div>i {
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  position: absolute;
+  right: 0;
+  padding: 20px 10px 10px 10px;
+}
+
+div.copySch>div>i:hover {
+  text-shadow: 2px 2px 2px gray;
+}
+
+/* 行程卡片上的複製權限顯示 */
+p.sch-date>span {
+  display: inline-block;
+  padding-left: 50%;
+}
+
+/* 檢舉行程區塊 */
+div.addReport {
+  /* border: 1px solid red; */
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
+/* 檢舉行程icon */
+i.report {
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  position: absolute;
+  right: 0;
+  padding: 20px 10px 10px 10px;
+}
+
+i.report:hover {
+  text-shadow: 2px 2px 2px gray;
+}
+
+/* 我要檢舉提示字 */
+div.addReportHint {
+  /* border: 1px solid white; */
+  position: absolute;
+  top: 50px;
+  width: 75px;
+  height: 25px;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 2px gray;
+  z-index: 0;
+}
+
+div.addReportHint.-off {
+  display: none;
+}
+
+/* 檢舉燈箱內容文字 */
+textarea#repDesc {
+  resize: none;
+  height: 300px;
+}
+
+/* 查看詳情 */
+a.viewDetails {
+  width: 100%;
+  height: 40px;
+  font-size: 1.3rem;
+}

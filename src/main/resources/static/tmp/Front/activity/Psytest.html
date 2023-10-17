@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索屬於你的旅程</title>
+    <link rel="stylesheet" href="Psytest.css">
+    <link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+<header>
+    <h1>* 探索屬於你的旅程 *</h1>
+</header>
+
+<div class="container">
+    <!-- 頭部 -->
+    <div class="headPart">
+
+        <!-- 題目區域 -->
+        <div class="quesPart">
+
+            <!-- 標題 -->
+            <h1>標題</h1>
+
+            <!-- 選項列表 -->
+            <ul class="answerList">
+
+                <!-- 循環生成 問題選項 -->
+                <li>
+                    <div class="opt">題號</div>
+                    <label class="optContent" for="A">
+                        題目
+                    </label>
+                    <div class="optRadio">
+                        <input id="A" type="radio" name="16" value="A">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 尾部按鈕 -->
+        <div class="footerPart">
+            <button>上一題</button>
+        </div>
+
+        <!-- 1列:題目順序數量 -->
+        <div class="h1part quesNum"><span>1</span>/12</div>
+
+        <!-- 2列:進度條 -->
+        <div class="h2part progress-container">
+            <div class="progress"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // 初始化
+
+    // 準備相關變數
+    let quesList = [] // 題目list
+    let userAnsList = [] // 存客戶選擇的答案 ['A','B'.....]
+    let curIndex = 0 // 存當前展示的序號
+
+    // 動態新增下一個題目
+    quesList.addQuestion = function (id, title, answer, optA, optB) {
+
+        // a.創建題目對象
+        let ques = {
+            id: id,
+            title: title,
+            answer: answer,
+            optList: [optA, optB]
+        }
+
+        // b.把題目對象加到list(this 就是 quesList)
+        this.push(ques)
+    }
+
+    // 資料初始化
+
+    quesList.addQuestion(1, '在旅遊時，你更喜歡？', '', '獨自旅行，自由安排行程，或少數幾個親密好友一同旅行', '與一群感情不錯的朋友一起旅行，喜歡廣闊交友')
+    quesList.addQuestion(2, '你更喜歡的活動類型是？', '', '具有啟發性的活動，思考事物未來的可能性和潛在意義', '實感體驗類型的活動，聚焦事物當下的實作細節和具體事實')
+    quesList.addQuestion(3, '當遇到旅遊中的挑戰時，你傾向於？', '', '尋求他人的幫助和建議', '迅速解決問題，找到解決方案')
+    quesList.addQuestion(4, '在計劃旅行時，你通常？', '', '讓旅程自然發展，不過分計劃', '提前規劃好每天的行程')
+    quesList.addQuestion(5, '在旅遊時，你比較傾向？', '', '享受寧靜和獨處的時刻，偏好一對一深度交流', '喜歡熱絡的氣氛，偏好多與新的人事物進行交流')
+    quesList.addQuestion(6, '在旅程中，遇到問題時，你更偏向？', '', '運用直覺、感覺等等抽象思維來找到解決方案', '以過往的經驗和事實為基礎作為解決方案')
+    quesList.addQuestion(7, '旅行時，你在做決定時更傾向於？', '', '考慮他人的感受和需要', '以邏輯和客觀事實為依據')
+    quesList.addQuestion(8, '旅途中遇到了困難，面對壓力時，你傾向於？', '', '讓自己保持彈性並隨遇而安', '採取行動解決問題')
+    quesList.addQuestion(9, '旅行時，在社交場合中，你通常是？', '', '更喜歡聆聽他人的意見並保持冷靜', '喜歡主動參與對話和活動')
+    quesList.addQuestion(10, '當在旅遊中學習新事物時，你傾向於？', '', '了解新事物的概念和歷史脈絡', '注重新事物的實際用途')
+    quesList.addQuestion(11, '與你比較相符的形容詞是？', '', '體貼入微、較具感性', '邏輯清晰、較具理性')
+    quesList.addQuestion(12, '對於旅遊行程，你比較喜歡？', '', '較寬鬆，給予自己更多休息和放鬆的時間', '有條理的安排，想盡可能多體驗一些')
+
+    console.log(quesList)
+
+
+
+    // 2.題目渲染
+    // 準備頁面上的常用元素dom對象
+    // a.題目標題
+    let quesTitle = document.querySelector('.quesPart h1')
+    // b.答案選項列表
+    let answerList = document.querySelector('.answerList')
+    // c.進度條
+    let pgIn = document.querySelector('.progress')
+    // d.上一題按鈕
+    let prevBtn = document.querySelector('.footerPart button')
+
+    // 3.題目渲染的方法
+    function renderQues(ques) {
+        // 1.題目標題
+        quesTitle.innerHTML = ques.id + '.' + ques.title
+        // 2.選項列表
+        // 2.1 清空列表
+        answerList.innerHTML = ''
+        // 2.2 循環生成選項列表
+        ques.optList.forEach((opt, index) => {
+            // a.創建選項元素
+            let optLi = document.createElement('li')
+            // b.根據下標獲取當前選項 字母：ABCDE...
+            let optChar = String.fromCharCode(65 + index)
+            // c.設置選項元素的內容
+            optLi.innerHTML = `
+
+<div class="opt">${optChar}</div>
+
+<label class="optContent" for="${optChar}">${opt}</label>
+
+<div class="optRadio">
+
+<input id="${optChar}" type="radio" name="${ques.id}" value="${optChar}">
+
+</div>
+
+`
+
+            // c.阻止事件冒泡，就不會觸發默認調用click的冒泡了！
+            optLi.querySelector('label').addEventListener('click', function (e) {
+                e.stopPropagation()
+            })
+
+            // d.為li添加自訂義屬，保存選項字母
+            optLi.setAttribute('data-char', optChar)
+            // e.li標籤绑定click事件
+            optLi.addEventListener('click', nextQues) // 2級 dom事件
+            // optLi.onclick = nextQues // 0级dom事件
+            // f.將選項元素添加到list中
+            answerList.appendChild(optLi)
+        })
+
+    }
+
+    // 4.頁面初始化，渲染第一題和統計
+    renderQues(quesList[curIndex])
+    renderQuesNum()
+
+
+    // 6.切換下一題
+
+    function nextQues() {
+
+        // 4.1 獲取當前選項，保存到答案數組中
+        // 通過被點擊的lable的上一個兄弟元素div的文字內容獲取選項字母
+        let optChar = this.getAttribute('data-char')
+
+        // 4.2 選擇答案後，要根據是否回答過這個題，來決定做答案替換還是追加
+        // a.判斷 當前答案數組中 是否已經 有這一題的答案
+
+        if (curIndex === userAnsList.length) {
+
+            // b.如果沒有選擇過這題的答案，則答案追加
+            userAnsList.push(optChar)
+
+        } else {
+
+            // c.如果選擇過這個題的答案，則替換之前的答案
+            userAnsList[curIndex] = optChar
+
+        }
+
+        // 4.3 如果小於題目數組最後一題的下標，則切換到下一題
+
+        if (curIndex < quesList.length - 1) {
+            curIndex++
+
+            // 渲染下一題
+            renderQues(quesList[curIndex])
+
+            // 渲染題目統計和進度條
+            renderQuesNum()
+
+            // 判断當前題目
+            if (curIndex < userAnsList.length) {
+                setAnswerChecked()
+
+            }
+
+        } else {
+            // 4.3 如果是最後一题，則計算分數和結果
+            calcScore()
+
+        }
+
+    }
+
+    // 7.渲染題目序號跟進度條
+
+    function renderQuesNum() {
+
+        // 5.1 更新題目序號
+        let quesNum = document.querySelector('.quesNum')
+        quesNum.innerHTML = `<span>${curIndex + 1}</span>/${quesList.length}`
+
+        // 5.2 更新進度條
+        let pgWidth = (curIndex + 1) / quesList.length * 100 + '%'
+        pgIn.style.width = pgWidth
+
+    }
+
+
+    // 初始化陣列
+    let dimensionsScore = [0, 0, 0, 0]; // [I-E, N-S, F-T, P-J]
+    function calcScore() {
+
+        // 6.0 說明文字
+        quesTitle.innerHTML = '你的旅行風格：'
+
+        // 6.1 計算結果( E、S、T、J 中的一個選項，相應的向度分數就會增加 1，累積各項度分數)
+        userAnsList.forEach((ans, index) => {
+
+            switch (index) {
+                case 0: // 第1題 IE
+                case 4: // 第5題 IE
+                case 8: // 第9題 IE
+                    if (ans === 'B') {
+                        dimensionsScore[0] += 1;
+                    }
+                    break;
+
+
+                case 1: // 第2題 NS
+                case 5: // 第6題 NS
+                case 9: // 第10題 NS
+                    if (ans === 'B') {
+                        dimensionsScore[1] += 1;
+                    }
+                    break;
+
+
+                case 2: // 第3題 FT
+                case 6: // 第7題 FT
+                case 10: // 第11題 FT
+                    if (ans === 'B') {
+                        dimensionsScore[2] += 1;
+                    }
+                    break;
+
+
+                case 3: // 第4題 PJ
+                case 7: // 第8題 PJ
+                case 11: // 第12題 PJ
+                    if (ans === 'B') {
+                        dimensionsScore[3] += 1;
+                    }
+                    break;
+            }
+
+        });
+
+        // 6.2 根據分數判斷傾向 ( 超過1，就是傾向E、S、T、J)
+        let personalityType = '';
+
+        // 判斷 I 或 E
+        if (dimensionsScore[0] > 1) {
+            personalityType += 'E';
+        } else {
+            personalityType += 'I';
+        }
+
+        // 判斷 N 或 S
+        if (dimensionsScore[1] > 1) {
+            personalityType += 'S';
+        } else {
+            personalityType += 'N';
+        }
+
+        // 判斷 F 或 T
+        if (dimensionsScore[2] > 1) {
+            personalityType += 'T';
+        } else {
+            personalityType += 'F';
+        }
+
+        // 判斷 P 或 J
+        if (dimensionsScore[3] > 1) {
+            personalityType += 'J';
+        } else {
+            personalityType += 'P';
+        }
+
+        // 6.3 渲染結果頁面、清空選項
+        answerList.innerHTML = ''
+
+        // 6.4 顯示人格類型結果
+        let resultLi = document.createElement('li');
+        resultLi.classList.add('result-text');
+        resultLi.innerHTML = `人格類型：${personalityType}`;
+<!--        answerList.appendChild(resultLi);-->
+
+        // 6.4 最後隱藏"上一題"按鈕
+        prevBtn.style.display = 'none';
+
+
+        // 添加人格類型和對應的說明 ()
+        const personalityDescriptions = {
+            'INTJ': '<h3>世界為師的探險家</h3>你理性獨立、思想成熟、心思慎密、內心敏感，熱衷於學習和追尋智慧。工作上你專業果決、力傾完美，對工作成果要求甚高。<br>而旅行對你來說不單是為了放鬆，更多的是為了自身的個人成長和增廣國際視野，可以接觸到帶來新知的導師及文化就是一趟讓你會享受的旅程。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=13">推薦行程</a>',
+            'INTP': '<h3>文化研究旅行家</h3>你安靜自持、重視邏輯分析、喜愛文本科學及理論，做事三思，因此也常猶豫不決。對你來說旅行是為了獲得自我批判的機會。<br>偏好一人獨旅，對聚會沒有太大的興趣，喜歡融入他國文化、思考不同地區體制的利弊。\n能讓你接觸到不同角度、鞏固對世界的理解就是一場會讓你感到滿足的旅程。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=17">推薦行程</a>',
+            'ENTJ': '<h3>跳出舒適圈的探險家</h3>你大膽自信、有話直說，是具決策力的天生領導者，工作上你善於長期策劃，並擅於與人交流，你重視效率，因此有時也會缺乏耐性。<br>旅行方面是目標明確的探險家，因此你會傾向喜歡衝出舒適圈，選擇陌生的環境來強迫自己成長。\n為你提供突破自我界限和全面發展絕佳機會的旅程便是你所嚮往的個人成長歷程。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=3">推薦行程</a>',
+            'ENTP': '<h3>智武雙全的冒險家</h3>你聰明、反應快、直言不諱、興趣多元、愛新鮮感，你喜歡為有趣的問題爭辯和解決帶挑戰性的問題，同時會厭倦繁雜的工作和容易忽視細節。<br>旅行對你來說是尋求新視角的機會，你會希望親身體驗不同地方的體制、謀生方式和文化。\n你醉心旅行不僅是因為喜歡冒險，更是為了加深對世界的理解，你最渴望的就是從他國文化中學到可以讓自己成長的課題。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=11">推薦行程</a>',
+            'INFJ': '<h3>哲學旅行家</h3>你具創意、原則性高、耐心堅忍。你常自我反省、容易心軟，覺得社交疲憊卻是朋友圈中的調和劑，亦是大家的精神嚮導。<br>雖然你有時口中會抱怨工作繁重，但你總會在工作中投放最大的努力，因此很大機會無意中因焦慮而成為工作狂。\n這般口硬心軟的你是一個想放慢節奏、遠離塵囂的旅遊行者，旋風式假期或密集的觀光旅行都不適合你，你渴望的是更充滿意義的一趟旅程。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=12">推薦行程</a>',
+            'INFP': '<h3>探索精神世界的旅行家</h3>你謙虛內斂、完美主義，極需要私人空間，是對價值觀和親友十分忠誠的理想主義者。你想像力強，常因全神貫注腦內想像而忽略身邊的事情。<br>最佳的旅行是找到個空間來讓自己探索精神世界，每當踏足新的地方時，在你的腦海中都會有個獨特的故事。\n比起真正出發去冒險，你更喜歡幻想即將擁有的冒險，甚至會在旅程結束後在腦內美化經歷。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=5">推薦行程</a>',
+            'ENFJ': '<h3>魅力四射的導遊</h3>你熱忱感性、愛交際，富幽默感及責任心，很在意自我形象。你擅長掌握談話話題，喜歡引導他人發揮潛能，亦具備如主角般天生的領導才能。<br>作為一個以人為本的人格，對你而言旅行的重點並非景點或活動，而是旅程中相伴的人和一起經歷的事情，沒有什麼比與親友製造美好回憶更重要。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=12">推薦行程</a>',
+            'ENFP': '<h3>渴望探索世界的好奇寶寶</h3>你健談坦率、真誠樂觀，腦裡裝滿奇思妙想。你感趣的事情多，愛思考生命的價值，渴望得到他人肯定，會常依賴適應力和解難能力而不作規劃。<br>貴為典型的即興執行者，旅行之於你是一場隨性的探險，亦是探索靈魂的過程。<br>每個新冒險及遇到的人，都能讓你更了解自己在世界中的位置。每次遠行都能讓你上有意義的課，幫助你建立更全面的世界觀。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=9">推薦行程</a>',
+            'ISTJ': '<h3>念舊的獨遊者</h3>你可靠務實、堅定、不畏閒言，集中力、觀察力和責任心十分強你重視傳統與忠誠，行事和生活都非常有組織又實際，亦是個完美主義的工作狂。<br>你不愛冒險、重視效率，喜歡出發前制定詳盡的計劃並在途中嚴格執行。你會想在旅行期間發揮最大效益可能地完成你根據背景資料所安排的行程。\n因此比起被不適合的旅伴拖後腿，你或許會更喜歡獨自一人跑滿滿的行程表。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=15">推薦行程</a>',
+            'ISFJ': '<h3>隨性的旅行者</h3>你溫柔謙虛、安靜知性、忠誠和善、堅忍顧家，行事盡責投入、安定性高、力求精確，不喜歡抱怨、不懂得拒絕，有時甚至没有甚麼主見。<br>考慮周到及細心顧家的你有著奉獻精神，致力建構有序和的家庭和工作環境，會努力維繫關係，是團體中的定心針。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=13">推薦行程</a>',
+            'ESTJ': '<h3>追求高CP值的旅行家</h3>你明察秋毫、實事求是，不喜歡抽象理論，擅長以最有效率的方式達成組織及管理你注重細節且果斷強勢，但容易忽略他人感受。<br>雖然旅行對你來說是不切實際的，但你會渴望來一高質量的旅行，讓你有靜心休養、享受的契機。<br>出發前你會可能把手頭上的工作全都完成，然後在旅程中隔絕與所有人的聯聚，直至假期結束又會再次回復工作狂人的狀態。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=18">推薦行程</a>',
+            'ESFJ': '<h3>善於規劃的旅行者</h3>你可靠務實、敏銳耐心、熱情健談、注重和諧、容易忽略自己的需要，負正義感和責任感，會精確並準時地完成工作，喜歡與他人共事。<br>你是個天生的合作者，鼓勵及稱讚會讓你工作效率變高。旅行方面，你傾向喜歡探索與自己原本的風俗、傳統和價值觀貼近的文化若能與適合的旅伴外宿時談天說地、捉膝詳談，對重視維繫關係的你來說便是一最棒的旅程。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=14">推薦行程</a>',
+            'ISTP': '<h3>說走就走的旅行者</h3>你安靜謙遜、理性寡言，天生富洞察力和好奇心，富黑色幽默感你喜歡默默地觀察和探索前因後果，擅長掌握問題核心及找出解決方法，亦有一套自己會堅守的原則與邏輯在日常生活中你很容易感到無聊。<br>因此一場說走就走的大冒險是你最嚮往的旅程。你會期望旅行為你無聊的生活增添些少樂趣，同時讓你可以釐清目光和視野、幫助你了解舒適圈以外的世界。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=4">推薦行程</a>',
+            'ISFP': '<h3>變幻莫測的探險家</h3>你敏感內斂、心思縝密，傾向避開爭論，常以客觀分析環境，不喜對他人強加已見。你不喜和別人打交道，需要很多獨處時間，對外有很多不同面向的形象。<br>喜歡遵循內心的感受，喜歡探討抽象概念，熱愛知識與資訊，是專注的藝術家。\n工作上你非成果導向，安於現狀，無意過度努力，喜歡以自訂的時程及空間工作。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=11">推薦行程</a>',
+            'ESTP': '<h3>喜歡刺激冒險的旅行者</h3>你靈活變通、適應力強，是活在當下的理想實踐者。你交友圈子廣闊，受歡迎、喜歡結交同好、表現自己你好勝心強，熱衷於與人爭論，說服技巧滿分，但不喜歡鑽研理論。<br>你喜歡從事運動及技術事務，擅長實時解決問題，是「只要願意投放心力，工作效率就會很高」的解決問題者。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=21">推薦行程</a>',
+            'ESFP': '<h3>活在當下的探險家</h3>你外向友善、善於言談、常突發奇想，喜歡與他人一起行動、愛開玩笑，是朋友圈中不可缺少的開心果。\n你喜歡豐富多彩的生活，亦是熱愛旅行的享樂主義者。<br>外出探索時你言起行坐，尋找純粹的冒險。你無意逗留在舒適圈內，想盡可能目睹世界更多。你不想懷著遺憾變老，因此你對每個新機會都保持開放的心態。<br><br><a href="http://localhost:8080/u-and-me/tmp/Front/schedule/myScheduleEdit.html?schId=9">推薦行程</a>'
+        };
+
+        personalityDescriptions.hasOwnProperty(personalityType);
+        let descriptionDiv = document.createElement('div');
+        descriptionDiv.classList.add('personality-description');
+        descriptionDiv.innerHTML = personalityDescriptions[personalityType];
+        answerList.appendChild(descriptionDiv);
+    }
+
+
+
+    // 7.上一題按鈕點擊事件
+
+    prevBtn.addEventListener('click', function () {
+        // 7.1 切換到上一題
+        if (curIndex > 0) {
+            curIndex--
+
+            // 7.2 渲染上一題
+            renderQues(quesList[curIndex])
+
+            // 7.3 渲染題目統計跟進度條
+            renderQuesNum()
+
+            // 7.4 根據選項字母設置選中的答案
+            setAnswerChecked()
+
+        } else {
+            alert('已經是第一題囉！')
+        }
+
+    })
+
+    // 8.根據選項字母設置選中的答案
+
+    function setAnswerChecked() {
+
+        // a.將現在這題選項設置為剛剛客戶選的
+        let optChar = userAnsList[curIndex] // B -> 1
+
+        // b.將字母轉成asscc碼 'C'.charCodeAt() -> 67
+        let optIndex = optChar.charCodeAt() - 65
+
+        // c.將選項列表中的對應的li標籤裡的單選按鈕checked屬性設置為true
+        answerList.children[optIndex].querySelector('.optRadio input').checked = true
+
+    }
+    document.querySelectorAll('.answerList li').forEach(function (optionLi) {
+        optionLi.addEventListener('click', function () {
+            // 刪除之前點擊的選項的樣式
+            document.querySelector('.answerList li.clicked')?.classList.remove('clicked');
+            // 為當前點擊的選項添加樣式
+            this.classList.add('clicked');
+        });
+    })
+
+
+</script>
+
+</body>
+
+</html>
